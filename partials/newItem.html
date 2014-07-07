@@ -1,0 +1,29 @@
+<form role="form" style="margin: 0 auto;">
+        <h1>Add new item</h1>
+        
+        <div class="required-field-block">
+            <input type="text" placeholder="Name" class="form-control">
+            <div class="required-icon">
+                <div class="text">*</div>
+            </div>
+        </div>
+        
+        <input type="text" placeholder="Description" class="form-control">
+
+        <input type="text" placeholder="Default price, e.g. 12.20" class="form-control">
+        
+		<div>
+            <button class="btn btn-danger">Cancel</button>
+            <button class="btn btn-primary">Save</button>
+            <button class="btn btn-success">Save and add another</button>
+		</div>
+</form>
+
+<script type="text/javascript">
+	  $(function() {
+        $('.required-icon').tooltip({
+          placement: 'left',
+          title: 'Required field'
+        });
+      });
+</script>

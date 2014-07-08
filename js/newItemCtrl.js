@@ -1,4 +1,4 @@
-expenseMeApp.controller("NewItemCtrl", function($scope) {
+expenseMeApp.controller("NewItemCtrl", function($scope, $location) {
 	var items = localStorage["items"];
 	if (items) {
 		$scope.existingItems = JSON.parse(items);
@@ -34,6 +34,7 @@ expenseMeApp.controller("NewItemCtrl", function($scope) {
 	
 	$scope.save = function() {
 		updateItems($scope.itemName, $scope.existingItems);
+		$location.path("/items");
 	};
 	
 	$scope.saveAndClear = function() {

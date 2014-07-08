@@ -7,6 +7,10 @@ expenseMeApp.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'partials/newItem.html',
 			controller: 'NewItemCtrl'
 		}).
+		when("/items", {
+			templateUrl: 'partials/items.html',
+			controller: 'ItemsCtrl'
+		}).
 		otherwise({"redirectTo": "/newItem"});
 }]);
 

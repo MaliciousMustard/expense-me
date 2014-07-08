@@ -26,6 +26,10 @@ expenseMeApp.controller("NewItemCtrl", function($scope, $location) {
 		}
 	});
 	
+	$scope.hasEightItems = function() {
+		return $scope.existingItems.length >= 8;
+	};
+	
 	$scope.canBeSaved = function() {
 		return $scope.newItem.name && !$scope.newItemForm.name.$invalid && !$scope.newItemForm.name.$error.duplicate && !$scope.newItemForm.price.$invalid;
 	};
@@ -49,4 +53,5 @@ expenseMeApp.controller("NewItemCtrl", function($scope, $location) {
 	$scope.cancel = function() {
 		$location.path("/items");
 	}
+
 });

@@ -1,43 +1,41 @@
 <form name="newItemForm" novalidate role="form" style="margin: 0 auto;">
-        <h1>Add new item</h1>
-        
-        <div class="required-field-block">
-            <input type="text" placeholder="Name" class="form-control" name="name" ng-model="itemName" ng-minlength=3 ng-maxlength=20 required>
-            <div class="required-icon">
-                <div class="text">*</div>
-            </div>
-			<div ng-show="newItemForm.name.$dirty && (newItemForm.name.$invalid || newItemForm.name.$error.duplicate)" class="alert alert-danger fade in">
-				<a href="#" class="close" data-dismiss="alert">&times;</a>
-				<strong>Error!</strong> 
-				<span ng-show="newItemForm.name.$error.duplicate">Item {{itemName}} already exists.</span>
-				<span ng-show="newItemForm.name.$error.required">Item's name is required.</span>
-				<span ng-show="newItemForm.name.$error.minlength">Item's name has to be at least 3 characters.</span>
-				<span ng-show="newItemForm.name.$error.maxlength">Item's name cannot be longer than 20 characters.</span>
-			</div>
-        </div>
-		
-		<input ng-model="itemDesc" type="text" placeholder="Description" class="form-control">
-		
-		<div>
-			<input ng-model="itemPrice" type="text" name="price" placeholder="Default price, e.g. 12.20" class="form-control">
-			<div ng-show="newItemForm.price.$invalid" class="alert alert-danger">
-				<a href="#" class="close" data-dismiss="alert">&times;</a>
-				<strong>Error!</strong> Item's price should be a number.
-			</div>
+	<div class="required-field-block">
+		<input type="text" placeholder="Name" class="form-control" name="name" ng-model="itemName" ng-minlength=3 ng-maxlength=20 required>
+		<div class="required-icon">
+			<div class="text">*</div>
 		</div>
-        
-		<div>
-            <button ng-click="cancel()" class="btn btn-danger">Cancel</button>
-            <button ng-disabled="!canBeSaved()" ng-click="save()" class="btn btn-primary">Save</button>
-            <button ng-disabled="!canBeSaved()" ng-click="saveAndClear()" class="btn btn-success">Save and add another</button>
+		<div ng-show="newItemForm.name.$dirty && (newItemForm.name.$invalid || newItemForm.name.$error.duplicate)" class="alert alert-danger fade in">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			<strong>Error!</strong> 
+			<span ng-show="newItemForm.name.$error.duplicate">Item {{itemName}} already exists.</span>
+			<span ng-show="newItemForm.name.$error.required">Item's name is required.</span>
+			<span ng-show="newItemForm.name.$error.minlength">Item's name has to be at least 3 characters.</span>
+			<span ng-show="newItemForm.name.$error.maxlength">Item's name cannot be longer than 20 characters.</span>
 		</div>
+	</div>
+	
+	<input ng-model="itemDesc" type="text" placeholder="Description" class="form-control">
+	
+	<div>
+		<input ng-model="itemPrice" type="text" name="price" placeholder="Default price, e.g. 12.20" class="form-control">
+		<div ng-show="newItemForm.price.$invalid" class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			<strong>Error!</strong> Item's price should be a number.
+		</div>
+	</div>
+	
+	<div>
+		<button ng-click="cancel()" class="btn btn-danger">Cancel</button>
+		<button ng-disabled="!canBeSaved()" ng-click="save()" class="btn btn-primary">Save</button>
+		<button ng-disabled="!canBeSaved()" ng-click="saveAndClear()" class="btn btn-success">Save and add another</button>
+	</div>
 </form>
 
 <script type="text/javascript">
 	  $(function() {
-        $('.required-icon').tooltip({
-          placement: 'left',
-          title: 'Required field'
-        });
-      });
+		$('.required-icon').tooltip({
+		  placement: 'left',
+		  title: 'Required field'
+		});
+	  });
 </script>

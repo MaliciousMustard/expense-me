@@ -44,4 +44,8 @@ expenseMeApp.controller("NewItemCtrl", function($scope, $location) {
 		$scope.itemDesc = "";
 		$scope.itemPrice = "";
 	};
+	
+	$scope.cancel = function() {
+		$location.path("/items");
+	}
 });

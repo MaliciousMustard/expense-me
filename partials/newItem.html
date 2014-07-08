@@ -27,7 +27,7 @@
 		</div>
         
 		<div>
-            <button class="btn btn-danger">Cancel</button>
+            <button ng-click="cancel()" class="btn btn-danger">Cancel</button>
             <button ng-disabled="!canBeSaved()" ng-click="save()" class="btn btn-primary">Save</button>
             <button ng-disabled="!canBeSaved()" ng-click="saveAndClear()" class="btn btn-success">Save and add another</button>
 		</div>

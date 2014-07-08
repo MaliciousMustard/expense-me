@@ -1,31 +1,32 @@
+var itemsKey = "random2938495873";
+
 var categories = [
 	{
 		name: "Smoking",
-		icon: ""
+		icon: "glyphicon-pencil"
 	}, 
 	{
 		name: "Food",
-		icon: ""
+		icon: "glyphicon-heart"
 	},
 	{
 		name: "Drink",
-		icon: ""
+		icon: "glyphicon-glass"
 	},
 	{
 		name: "Transportation",
-		icon: ""
+		icon: "glyphicon-user"
 	},
 	{
 		name: "Bills",
-		icon: ""
+		icon: "glyphicon-film"
 	},
 	{
 		name: "Gas",
-		icon: ""
+		icon: "glyphicon-ok"
 	},
 	{
 		name: "None of the above",
-		icon: ""
-	},
-	
+		icon: "glyphicon-th"
+	}
 ];

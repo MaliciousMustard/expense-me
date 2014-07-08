@@ -1,4 +1,6 @@
 expenseMeApp.controller("NewItemCtrl", function($scope, $location) {
+	$scope.categories = categories; // categories are coming from constants.js
+	
 	var items = localStorage["items"];
 	if (items) {
 		$scope.existingItems = JSON.parse(items);

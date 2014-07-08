@@ -24,6 +24,11 @@
 		</div>
 	</div>
 	
+	<select class="form-control">
+		<option selected>Select category</option>
+		<option ng-repeat="category in categories" value="{{category.name}}">{{category.name}}</option>
+	</select>
+	
 	<div>
 		<button ng-click="cancel()" class="btn btn-danger">Cancel</button>
 		<button ng-disabled="!canBeSaved()" ng-click="save()" class="btn btn-primary">Save</button>

@@ -16,24 +16,26 @@
   </head>
   
 	<body class="container" >
-		<div class="navbar navbar-inverse navbar-fixed-top">		
-      		<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Expense Me</a>
-	        </div>
-	        <div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="#">Home</a></li>
-					<li><a href="#newItem">Add new item</a></li>
-					<li><a href="#">Edit items</a></li>
-					<li><a href="#">Show expenses</a></li>
-				</ul>
-	        </div><!--/.navbar-collapse -->
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Expense Me</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#">Home</a></li>
+						<li><a href="#newItem">Add new item</a></li>
+						<li><a href="#editItems">Edit items</a></li>
+						<li><a href="#">Show expenses</a></li>
+					</ul>
+				</div><!--/.navbar-collapse -->
+			</div>
 	    </div> <!-- /.navbar -->
   
 		<div ng-view></div>
@@ -46,6 +48,7 @@
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/newItemCtrl.js"></script>
 		<script type="text/javascript" src="js/itemsCtrl.js"></script>
+		<script type="text/javascript" src="js/editItemsCtrl.js"></script>
 	
 	</body>
 </html>

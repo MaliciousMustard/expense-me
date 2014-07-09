@@ -1,43 +1,48 @@
-<div ng-show="hasEightItems()" class="alert alert-danger fade in">
+<div ng-show="hasEightItems() && !update" class="alert alert-danger fade in">
 	<a href="#" class="close" data-dismiss="alert">&times;</a>
 	<strong>Error!</strong> There are already 8 items registered. You cannot add anymore until you delete some.
 </div>
 
-<form name="newItemForm" novalidate role="form" style="margin: 0 auto;">
+<form name="itemForm" novalidate role="form" style="margin: 0 auto;">
 	<div class="required-field-block">
-		<input ng-disabled="hasEightItems()" type="text" placeholder="Name" class="form-control" name="name" ng-model="newItem.name" ng-minlength=3 ng-maxlength=20 required>
+		<input ng-disabled="hasEightItems() || update" type="text" placeholder="Name" class="form-control" name="name" ng-model="item.name" ng-minlength=3 ng-maxlength=20 required>
 		<div class="required-icon">
 			<div class="text">*</div>
 		</div>
-		<div ng-show="newItemForm.name.$dirty && (newItemForm.name.$invalid || newItemForm.name.$error.duplicate)" class="alert alert-danger fade in">
+		<div ng-show="itemForm.name.$dirty && (itemForm.name.$invalid || itemForm.name.$error.duplicate)" class="alert alert-danger fade in">
 			<a href="#" class="close" data-dismiss="alert">&times;</a>
 			<strong>Error!</strong> 
-			<span ng-show="newItemForm.name.$error.duplicate">Item {{newItem.name}} already exists.</span>
-			<span ng-show="newItemForm.name.$error.required">Item's name is required.</span>
-			<span ng-show="newItemForm.name.$error.minlength">Item's name has to be at least 3 characters.</span>
-			<span ng-show="newItemForm.name.$error.maxlength">Item's name cannot be longer than 20 characters.</span>
+			<span ng-show="itemForm.name.$error.duplicate">Item {{item.name}} already exists.</span>
+			<span ng-show="itemForm.name.$error.required">Item's name is required.</span>
+			<span ng-show="itemForm.name.$error.minlength">Item's name has to be at least 3 characters.</span>
+			<span ng-show="itemForm.name.$error.maxlength">Item's name cannot be longer than 20 characters.</span>
 		</div>
 	</div>
 	
-	<input ng-disabled="hasEightItems()" ng-model="newItem.description" type="text" placeholder="Description" class="form-control">
+	<input ng-disabled="hasEightItems() && !update" ng-model="item.description" type="text" placeholder="Description" class="form-control">
 	
 	<div>
-		<input ng-disabled="hasEightItems()" ng-model="newItem.price" type="text" name="price" placeholder="Default price, e.g. 12.20" class="form-control">
-		<div ng-show="newItemForm.price.$invalid" class="alert alert-danger">
+		<input ng-disabled="hasEightItems() && !update" ng-model="item.price" type="text" name="price" placeholder="Default price, e.g. 12.20" class="form-control">
+		<div ng-show="itemForm.price.$invalid" class="alert alert-danger">
 			<a href="#" class="close" data-dismiss="alert">&times;</a>
 			<strong>Error!</strong> Item's price should be a number.
 		</div>
 	</div>
 	
-	<select ng-disabled="hasEightItems()" ng-model="newItem.category" class="form-control">
+	<select ng-disabled="hasEightItems() && !update" ng-model="item.category" class="form-control">
 		<option value="" selected>Select category</option>
-		<option ng-repeat="category in categories" value="{{category.name}}">{{category.name}}</option>
+		<option ng-repeat="category in categories" ng-selected="item.category == category.name" value="{{category.name}}">{{category.name}}</option>
 	</select>
 	
-	<div>
+	<div ng-show="!update">
 		<button ng-click="cancel()" class="btn btn-danger">Cancel</button>
 		<button ng-disabled="!canBeSaved() || hasEightItems()" ng-click="save()" class="btn btn-primary">Save</button>
 		<button ng-disabled="!canBeSaved() || hasEightItems()" ng-click="saveAndClear()" class="btn btn-success">Save and add another</button>
+	</div>
+	
+	<div ng-show="update">
+		<button ng-disabled="!canBeSaved()" ng-click="deleteItem()" class="btn btn-danger">Delete</button>
+		<button ng-disabled="!canBeSaved()" ng-click="updateItem()" class="btn btn-success">Update</button>
 	</div>
 </form>
 

@@ -1,7 +1,6 @@
-expenseMeApp.controller("NewItemCtrl", function($scope, $location) {
-	$scope.categories = categories; // categories are coming from constants.js
+expenseMeApp.controller("NewItemCtrl", function($scope, $location, $routeParams) {
 	
-	$scope.newItem = {};
+	$scope.categories = categories; // categories are coming from constants.js
 	
 	var items = localStorage[itemsKey];
 	if (items) {
@@ -10,19 +9,34 @@ expenseMeApp.controller("NewItemCtrl", function($scope, $location) {
 		$scope.existingItems = [];
 	}
 	
-	$scope.$watch('newItem.name', function(newVal) {
-		if ($scope.newItem.name && $scope.existingItems.indexOf($scope.newItem.name) > -1) {
-			$scope.newItemForm.name.$error.duplicate = true;
+	var itemParam = $routeParams.itemName;
+	if (itemParam) {
+		for (i in $scope.existingItems) {
+			if ($scope.existingItems[i].name === itemParam) {
+				$scope.item = $scope.existingItems[i];
+				$scope.update = true;
+				break;
+			}
+		}
+	} 
+	if (!$scope.item) {
+		$scope.item = {};
+		$scope.updateItem = false;
+	}
+	
+	$scope.$watch('item.name', function(newVal) {
+		if ($scope.item.name && $scope.existingItems.indexOf($scope.item.name) > -1) {
+			$scope.itemForm.name.$error.duplicate = true;
 		} else {
-			$scope.newItemForm.name.$error.duplicate = false;
+			$scope.itemForm.name.$error.duplicate = false;
 		}
 	});
 	
-	$scope.$watch('newItem.price', function(newVal) {
+	$scope.$watch('item.price', function(newVal) {
 		if (newVal) {
-			$scope.newItemForm.price.$invalid = isNaN(newVal);
+			$scope.itemForm.price.$invalid = isNaN(newVal);
 		} else {
-			$scope.newItemForm.price.$invalid = false;
+			$scope.itemForm.price.$invalid = false;
 		}
 	});
 	
@@ -31,27 +45,49 @@ expenseMeApp.controller("NewItemCtrl", function($scope, $location) {
 	};
 	
 	$scope.canBeSaved = function() {
-		return $scope.newItem.name && !$scope.newItemForm.name.$invalid && !$scope.newItemForm.name.$error.duplicate && !$scope.newItemForm.price.$invalid;
+		return $scope.item.name && !$scope.itemForm.name.$invalid && !$scope.itemForm.name.$error.duplicate && !$scope.itemForm.price.$invalid;
 	};
 	
 	var updateItems = function(item, items) {
 		items.push(item);
 		localStorage[itemsKey] = JSON.stringify(items);
-	}
+	};
 	
 	$scope.save = function() {
-		updateItems($scope.newItem, $scope.existingItems);
+		updateItems($scope.item, $scope.existingItems);
 		$location.path("/items");
 	};
 	
 	$scope.saveAndClear = function() {
-		updateItems($scope.newItem, $scope.existingItems);
-		$scope.newItemForm.$setPristine();
-		$scope.newItem = {};
+		updateItems($scope.item, $scope.existingItems);
+		$scope.itemForm.$setPristine();
+		$scope.item = {};
 	};
 	
 	$scope.cancel = function() {
 		$location.path("/items");
+	};
+	
+	$scope.updateItem = function() {
+		for (i in $scope.existingItems) {
+			if ($scope.existingItems[i].name == $scope.item.name) {
+				$scope.existingItems[i] = $scope.item;
+				localStorage[itemsKey] = JSON.stringify($scope.existingItems);
+				$location.path("/editItems");
+				break;
+			}
+		}
+	};
+	
+	$scope.deleteItem = function() {
+		for (i in $scope.existingItems) {
+			if ($scope.existingItems[i].name === $scope.item.name) {
+				$scope.existingItems.splice(i, 1);
+				localStorage[itemsKey] = JSON.stringify($scope.existingItems);
+				$location.path("/editItems");
+				break;
+			}
+		}
 	}
 
 });

@@ -1,4 +1,4 @@
-expenseMeApp.controller('ItemsCtrl', function($scope) {
+expenseMeApp.controller('HomeCtrl', function($scope) {
 	var itemsStr = localStorage[itemsKey];
 	if (itemsStr) {
 		$scope.items = JSON.parse(itemsStr);

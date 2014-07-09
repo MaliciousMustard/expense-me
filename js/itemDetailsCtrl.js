@@ -1,4 +1,4 @@
-expenseMeApp.controller("NewItemCtrl", function($scope, $location, $routeParams) {
+expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routeParams) {
 	
 	$scope.categories = categories; // categories are coming from constants.js
 	
@@ -55,7 +55,7 @@ expenseMeApp.controller("NewItemCtrl", function($scope, $location, $routeParams)
 	
 	$scope.save = function() {
 		updateItems($scope.item, $scope.existingItems);
-		$location.path("/items");
+		$location.path("/home");
 	};
 	
 	$scope.saveAndClear = function() {
@@ -65,7 +65,7 @@ expenseMeApp.controller("NewItemCtrl", function($scope, $location, $routeParams)
 	};
 	
 	$scope.cancel = function() {
-		$location.path("/items");
+		$location.path("/home");
 	};
 	
 	$scope.updateItem = function() {
@@ -73,7 +73,7 @@ expenseMeApp.controller("NewItemCtrl", function($scope, $location, $routeParams)
 			if ($scope.existingItems[i].name == $scope.item.name) {
 				$scope.existingItems[i] = $scope.item;
 				localStorage[itemsKey] = JSON.stringify($scope.existingItems);
-				$location.path("/editItems");
+				$location.path("/itemList");
 				break;
 			}
 		}
@@ -84,7 +84,7 @@ expenseMeApp.controller("NewItemCtrl", function($scope, $location, $routeParams)
 			if ($scope.existingItems[i].name === $scope.item.name) {
 				$scope.existingItems.splice(i, 1);
 				localStorage[itemsKey] = JSON.stringify($scope.existingItems);
-				$location.path("/editItems");
+				$location.path("/itemList");
 				break;
 			}
 		}

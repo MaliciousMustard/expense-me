@@ -1,4 +1,4 @@
-expenseMeApp.controller('EditItemsCtrl', function($scope) {
+expenseMeApp.controller('ItemListCtrl', function($scope) {
 	var items = localStorage[itemsKey];
 	if (items) {
 		$scope.existingItems = JSON.parse(items);

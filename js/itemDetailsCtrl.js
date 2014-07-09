@@ -48,8 +48,14 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 		return $scope.item.name && !$scope.itemForm.name.$invalid && !$scope.itemForm.name.$error.duplicate && !$scope.itemForm.price.$invalid;
 	};
 	
-	var updateItems = function(item, items) {
-		items.push(item);
+	var updateItems = function(item, items, position) {
+		if (position) {
+			items[position] = item;
+		} else {
+			var randomIndex = Math.floor(Math.random() * (colors.length));
+			item.color = colors[randomIndex];
+			items.push(item);
+		}
 		localStorage[itemsKey] = JSON.stringify(items);
 	};
 	
@@ -71,8 +77,8 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 	$scope.updateItem = function() {
 		for (i in $scope.existingItems) {
 			if ($scope.existingItems[i].name == $scope.item.name) {
-				$scope.existingItems[i] = $scope.item;
-				localStorage[itemsKey] = JSON.stringify($scope.existingItems);
+				updateItems($scope.item, $scope.existingItems, i);
+				
 				$location.path("/itemList");
 				break;
 			}

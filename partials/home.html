@@ -1,6 +1,6 @@
 <div class="row">
 	<div ng-repeat="item in items" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 center-block">
-		<button ng-click="registerExpense(item)" type="button" class="btn btn-primary btn-circle center-block"><i class="glyphicon {{iconPerCategory[item.category]}}"></i></button>
+		<button ng-click="registerExpense(item)" type="button" class="btn {{item.color}} btn-circle center-block"><i class="glyphicon {{iconPerCategory[item.category]}}"></i></button>
 		<p class="text-center">{{item.name}}</p>
 	</div>
 </div>

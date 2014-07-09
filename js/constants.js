@@ -30,3 +30,11 @@ var categories = [
 		icon: "glyphicon-th"
 	}
 ];
+
+var colors = [
+	"btn-primary", 
+	"btn-success",
+	"btn-info",
+	"btn-warning",
+	"btn-danger"
+];

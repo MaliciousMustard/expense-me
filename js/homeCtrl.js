@@ -12,10 +12,14 @@ expenseMeApp.controller('HomeCtrl', function($scope) {
 	
 	$scope.registerExpense = function(item) {
 		if (item.price) {
+			storeInDb(item, new Date());
 			alertBox.show(item.name + ' registered');
 		} else {
 			bootbox.prompt("Price for " + item.name, function(price) {
 				if (price && !isNaN(price)) {
+					item.price = price;
+					storeInDb(item, new Date());
+					delete item.price;
 					alertBox.show(item.name + ' registered');
 				} else {
 					return false;

@@ -1,6 +1,32 @@
 <div class="row">
 	<div ng-repeat="item in items" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 center-block">
-		<button type="button" class="btn btn-primary btn-circle center-block"><i class="glyphicon {{iconPerCategory[item.category]}}"></i></button>
+		<button ng-click="registerExpense(item)" type="button" class="btn btn-primary btn-circle center-block"><i class="glyphicon {{iconPerCategory[item.category]}}"></i></button>
 		<p class="text-center">{{item.name}}</p>
 	</div>
 </div>
+
+<!-- The following snippet is taken from bootboxjs.com -->
+<style>
+.bb-alert {
+    position:fixed;
+    top:60px;
+    right:0;
+    margin-bottom:0;
+    font-size:1.2em;
+    padding:1em 1.3em;
+    z-index:2000;
+}
+</style>
+
+<div class="bb-alert alert alert-success" style="display:none;">
+	<span>This alert will be populated</span>
+</div>
+
+<script>
+	$(function() {
+		alertBox.init({
+			"selector": ".bb-alert"
+		});
+	});
+</script>
+<!-- End of bootboxjs.com code -->

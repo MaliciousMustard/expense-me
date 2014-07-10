@@ -1,0 +1,42 @@
+<div class="list-group">
+
+	<a class="list-group-item">
+		<div class="btn-group btn-toggle pull-right"> 
+			<button class="btn btn-xs btn-default">ON</button>
+			<button class="btn btn-xs btn-primary active">OFF</button>
+		</div>
+		<h4 class="list-group-item-heading">
+			Smart placement
+		</h4>
+		<p class="list-group-item-text">
+			Re-arranges the items based on patterns of usage.
+		</p>
+	</a>
+
+	<a class="list-group-item">
+		<div class="btn-group btn-toggle pull-right"> 
+			<button class="btn btn-xs btn-default">ON</button>
+			<button class="btn btn-xs btn-primary active">OFF</button>
+		</div>
+		<h4 class="list-group-item-heading">
+			Notify when cleaning older entries
+		</h4>
+		<p class="list-group-item-text">
+			User is notified before older entries are deleted.
+		</p>
+	</a>
+</div>
+
+<script type="text/javascript">
+$('.btn-toggle').click(function() {
+    $(this).find('.btn').toggleClass('active');  
+    
+    if ($(this).find('.btn-primary').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-primary');
+    }
+    
+    $(this).find('.btn').toggleClass('btn-default');
+
+});
+</script>
+

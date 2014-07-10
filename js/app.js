@@ -3,14 +3,6 @@ var expenseMeApp = angular.module('expenseMeApp', ['ngRoute']);
 // configuration and routing
 expenseMeApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
-		when("/expenses", {
-			templateUrl: 'partials/expenses.html',
-			controller: 'ExpensesCtrl'
-		}).
-		when("/itemList", {
-			templateUrl: 'partials/itemList.html',
-			controller: 'ItemListCtrl'
-		}).
 		when("/editItem/:itemName", {
 			templateUrl: 'partials/itemDetails.html',
 			controller: 'ItemDetailsCtrl',
@@ -23,6 +15,18 @@ expenseMeApp.config(['$routeProvider', function($routeProvider) {
 					};
 				}
 			}
+		}).
+		when("/expenses", {
+			templateUrl: 'partials/expenses.html',
+			controller: 'ExpensesCtrl'
+		}).
+		when("/home", {
+			templateUrl: 'partials/home.html',
+			controller: 'HomeCtrl'
+		}).
+		when("/itemList", {
+			templateUrl: 'partials/itemList.html',
+			controller: 'ItemListCtrl'
 		}).
 		when("/newItem", {
 			templateUrl: 'partials/itemDetails.html',
@@ -50,9 +54,9 @@ expenseMeApp.config(['$routeProvider', function($routeProvider) {
 				}
 			}
 		}).
-		when("/home", {
-			templateUrl: 'partials/home.html',
-			controller: 'HomeCtrl'
+		when("/settings", {
+			templateUrl: 'partials/settings.html',
+			controller: 'SettingsCtrl'
 		}).
 		otherwise({"redirectTo": "/home"});
 }]);

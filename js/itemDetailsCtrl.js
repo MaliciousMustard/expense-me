@@ -24,6 +24,8 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 		$scope.updateItem = false;
 	}
 	
+	$scope.noCategory = noCategory;
+	
 	$scope.$watch('item.name', function(newVal) {
 		if ($scope.item.name && $scope.existingItems.indexOf($scope.item.name) > -1) {
 			$scope.itemForm.name.$error.duplicate = true;
@@ -49,6 +51,11 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 	};
 	
 	var updateItems = function(item, items, position) {
+		console.log(item.category);
+		if (item.category === $scope.noCategory) {
+			delete item.category;
+		}
+		
 		if (position) {
 			items[position] = item;
 		} else {

@@ -27,6 +27,10 @@ expenseMeApp.controller('HomeCtrl', function($scope) {
 			});
 		}
 	};
+	
+	$scope.newExpense = function() {
+		// TODO show form to fill in details for expense
+	};
 });
 
 // The following code is taken from bootboxjs.com

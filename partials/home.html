@@ -1,7 +1,12 @@
 <div class="row">
 	<div ng-repeat="item in items" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 center-block">
-		<button ng-click="registerExpense(item)" type="button" class="btn {{item.color}} btn-circle center-block"><i class="glyphicon {{iconPerCategory[item.category]}}"></i></button>
+		<button ng-show="item.category" ng-click="registerExpense(item)" type="button" class="btn {{item.color}} btn-circle center-block"><i class="glyphicon {{iconPerCategory[item.category]}}"></i></button>
+		<button ng-show="!item.category" ng-click="registerExpense(item)" type="button" class="btn {{item.color}} btn-circle center-block">{{item.name.charAt(0).toUpperCase()}}</button>
 		<p class="text-center">{{item.name}}</p>
+	</div>
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 center-block">
+		<button ng-click="newExpense()" type="button" class="btn btn-default btn-circle center-block"><i class="glyphicon glyphicon-plus"></i></button>
+		<p class="text-center">Other</p>
 	</div>
 </div>
 

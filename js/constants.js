@@ -1,5 +1,5 @@
 var itemsKey = "random2938495873";
-
+var noCategory = "None of the above";
 var categories = [
 	{
 		name: "Smoking",
@@ -24,10 +24,6 @@ var categories = [
 	{
 		name: "Gas",
 		icon: "glyphicon-ok"
-	},
-	{
-		name: "None of the above",
-		icon: "glyphicon-th"
 	}
 ];
 

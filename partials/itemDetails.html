@@ -32,6 +32,7 @@
 	<select ng-disabled="hasEightItems() && !update" ng-model="item.category" class="form-control">
 		<option value="" selected>Select category</option>
 		<option ng-repeat="category in categories" ng-selected="item.category == category.name" value="{{category.name}}">{{category.name}}</option>
+		<option value="{{noCategory}}">{{noCategory}}</option>
 	</select>
 	
 	<div ng-show="!update">

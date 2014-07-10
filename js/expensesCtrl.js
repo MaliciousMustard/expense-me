@@ -59,7 +59,7 @@ expenseMeApp.controller('ExpensesCtrl', function($scope) {
 		for (var i in expenses) {
 			total = total + expenses[i].price;
 		}
-		return total;
+		return total.toFixed(2);
 	};
 	var date = new Date();
 	getExpensesSummaryFromDb(date.getFullYear(), date.getMonth(), updatePieChartWithResults);

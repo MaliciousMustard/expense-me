@@ -36,7 +36,7 @@
 	</select>
 	
 	<div ng-show="!update">
-		<button ng-click="cancel()" class="btn btn-labeled btn-danger">
+		<button ng-click="back('/home')" class="btn btn-labeled btn-danger">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-remove"></i>
 			</span>
@@ -57,6 +57,12 @@
 	</div>
 	
 	<div ng-show="update">
+		<button ng-click="back('/itemList')" class="btn btn-labeled btn-danger">
+			<span class="btn-label">
+				<i class="glyphicon glyphicon-arrow-left"></i>
+			</span>
+			Back
+		</button>
 		<button ng-disabled="!canBeSaved()" ng-click="deleteItem()" class="btn btn-labeled btn-danger">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-trash"></i>

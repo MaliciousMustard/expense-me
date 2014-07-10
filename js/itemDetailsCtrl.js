@@ -75,8 +75,8 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 		$scope.item = {};
 	};
 	
-	$scope.cancel = function() {
-		$location.path("/home");
+	$scope.back = function(location) {
+		$location.path(location);
 	};
 	
 	$scope.updateItem = function() {

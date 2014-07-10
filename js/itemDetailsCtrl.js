@@ -23,7 +23,7 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 	}
 	
 	$scope.status = status;
-	console.log($scope.status);
+	
 	$scope.noCategory = noCategory;
 	
 	$scope.$watch('item.name', function(newVal) {

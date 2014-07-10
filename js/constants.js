@@ -1,4 +1,5 @@
 var itemsKey = "random2938495873";
+var beenHereBefore = "beenHereBefore293949";
 var noCategory = "None of the above";
 var categories = [
 	{

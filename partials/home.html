@@ -9,6 +9,14 @@
 	</div>
 </div>
 
-<div ng-show="items.length == 0" class="alert alert-warning fade in">
-	<strong>There are no items. Please add some items through <a href="#newItem">here.</a></strong>
+<div ng-show="items.length == 0 && beenHereBefore" class="alert alert-warning fade in">
+	<strong>No items found. Please add some items through <a href="#newItem">here.</a></strong>
+</div>
+
+<div ng-show="items.length == 0 && !beenHereBefore" class="alert alert-info fade in">
+	<strong>
+		<a href="#newItem">Welcome to ExpenseMe! We hope you will enjoy it! 
+		<br />
+		In order to start keeping track of your expenses please add some items.</a>
+	</strong>
 </div>

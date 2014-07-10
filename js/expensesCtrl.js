@@ -62,7 +62,7 @@ expenseMeApp.controller('ExpensesCtrl', function($scope) {
 		}
 		return total;
 	};
-	
-	getExpensesSummaryFromDb(2014, 6, updatePieChartWithResults);
-	getExpensesFromDb(2014, 6, updateScopeWithResults);
+	var date = new Date();
+	getExpensesSummaryFromDb(date.getFullYear(), date.getMonth(), updatePieChartWithResults);
+	getExpensesFromDb(date.getFullYear(), date.getMonth(), updateScopeWithResults);
 });

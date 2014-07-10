@@ -55,6 +55,14 @@ expenseMeApp.controller('ExpensesCtrl', function($scope) {
 		});
 	};
 	
+	$scope.getTotal = function(expenses) {
+		var total = 0;
+		for (var i in expenses) {
+			total = total + expenses[i].price;
+		}
+		return total;
+	};
+	
 	getExpensesSummaryFromDb(2014, 6, updatePieChartWithResults);
 	getExpensesFromDb(2014, 6, updateScopeWithResults);
 });

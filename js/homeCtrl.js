@@ -1,9 +1,15 @@
 expenseMeApp.controller('HomeCtrl', function($scope, $location, notificationService) {
 	var itemsStr = localStorage[itemsKey];
+	$scope.items = [];
 	if (itemsStr) {
-		$scope.items = JSON.parse(itemsStr);
-	} else {
-		$scope.items = [];
+		var allItems = JSON.parse(itemsStr);
+		allItems.push(undefined); // dummy element for the additional button that is not part of the items
+		for (var i = 0; i < allItems.length; i++) {
+			if (i % 3 == 0) {
+				$scope.items.push([]);
+			}
+			$scope.items[$scope.items.length - 1].push(allItems[i]);
+		}
 	}
 	$scope.iconPerCategory = [];
 	for (i in categories) {

@@ -57,5 +57,4 @@ expenseMeApp.controller('ExpensesCtrl', function($scope) {
 	
 	getExpensesSummaryFromDb(2014, 6, updatePieChartWithResults);
 	getExpensesFromDb(2014, 6, updateScopeWithResults);
-	
 });

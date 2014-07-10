@@ -14,10 +14,10 @@ function storeInDb(item, date) {
 	}
 	var time = (date.getHours() < 10 ? '0' : '') + date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
 	var comments = item.description ? '"' + item.description + '"' : '""';
+	var category = item.category ? '"' + item.category + '"' : null;
 	db.transaction(function (tx) {
-		var sqlQuery = 'INSERT INTO EXPENSES (timestamp, year, month, day, time, name, price, category, comments) VALUES (' + date.getTime() + ', ' + date.getFullYear() + ', ' + date.getMonth() + ', ' + date.getDate() + ', "' + time + '", "' + item.name + '", ' + item.price + ', "' + item.category + '", ' + comments + ')';
+		var sqlQuery = 'INSERT INTO EXPENSES (timestamp, year, month, day, time, name, price, category, comments) VALUES (' + date.getTime() + ', ' + date.getFullYear() + ', ' + date.getMonth() + ', ' + date.getDate() + ', "' + time + '", "' + item.name + '", ' + item.price + ', ' + category + ', ' + comments + ')';
 		
-		console.log(sqlQuery);
 		tx.executeSql(sqlQuery);
 	});
 }

@@ -51,11 +51,9 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 	};
 	
 	var updateItems = function(item, items, position) {
-		console.log(item.category);
 		if (item.category === $scope.noCategory) {
 			delete item.category;
 		}
-		
 		if (position) {
 			items[position] = item;
 		} else {

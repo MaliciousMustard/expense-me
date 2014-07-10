@@ -17,10 +17,10 @@ expenseMeApp.controller('HomeCtrl', function($scope) {
 		} else {
 			bootbox.prompt("Price for " + item.name, function(price) {
 				if (price && !isNaN(price)) {
-					item.price = price;
-					storeInDb(item, new Date());
-					delete item.price;
-					alertBox.show(item.name + ' registered');
+					var newItem = jQuery.extend({}, item);
+					newItem.price = price;
+					storeInDb(newItem, new Date());
+					alertBox.show(newItem.name + ' registered');
 				} else {
 					return false;
 				}

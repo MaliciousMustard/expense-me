@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "gr.ntousias.expenseMe"
+        version     = "1.0.0" >
+
+    <name>ExpenseMe</name>
+
+    <description>
+        App that helps you keep track of your expenses in an easy and intuitive way!
+    </description>
+
+    <author href="http://ntousias.gr" email="antousias@gmail.com">
+        Alexandros Ntousias
+    </author>
+	
+	<preference name="permissions"                value="none"/>
+
+	<preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
+    <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
+	
+	<icon src="icons/android/drawable_ldpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="ldpi" />
+    <icon src="icons/android/drawable_mdpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="mdpi" />
+    <icon src="icons/android/drawable_hdpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="hdpi" />
+    <icon src="icons/android/drawable_xhdpi/ic_launcher.png"  gap:platform="android"    gap:qualifier="xhdpi" />
+	
+</widget>

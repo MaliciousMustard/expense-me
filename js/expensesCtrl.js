@@ -1,5 +1,4 @@
 expenseMeApp.controller('ExpensesCtrl', function($scope) {
-
 	$scope.iconPerCategory = [];
 	for (i in categories) {
 		$scope.iconPerCategory[categories[i].name] = categories[i].icon;

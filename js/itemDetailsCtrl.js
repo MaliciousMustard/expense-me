@@ -1,4 +1,4 @@
-expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routeParams) {
+expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routeParams, status, notificationService) {
 	
 	$scope.categories = categories; // categories are coming from constants.js
 	
@@ -14,31 +14,23 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 		for (i in $scope.existingItems) {
 			if ($scope.existingItems[i].name === itemParam) {
 				$scope.item = $scope.existingItems[i];
-				$scope.update = true;
 				break;
 			}
 		}
 	} 
 	if (!$scope.item) {
 		$scope.item = {};
-		$scope.updateItem = false;
 	}
 	
+	$scope.status = status;
+	console.log($scope.status);
 	$scope.noCategory = noCategory;
 	
 	$scope.$watch('item.name', function(newVal) {
-		if ($scope.item.name && $scope.existingItems.indexOf($scope.item.name) > -1) {
-			$scope.itemForm.name.$error.duplicate = true;
+		if (!$scope.status.updateItem && $scope.item.name && $scope.existingItems.filter(function(item) { return item.name === $scope.item.name; }).length > 0) {
+			$scope.itemForm.name.$setValidity('duplicate', false);
 		} else {
-			$scope.itemForm.name.$error.duplicate = false;
-		}
-	});
-	
-	$scope.$watch('item.price', function(newVal) {
-		if (newVal) {
-			$scope.itemForm.price.$invalid = isNaN(newVal);
-		} else {
-			$scope.itemForm.price.$invalid = false;
+			$scope.itemForm.name.$setValidity('duplicate', true);
 		}
 	});
 	
@@ -62,6 +54,15 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 			items.push(item);
 		}
 		localStorage[itemsKey] = JSON.stringify(items);
+	};
+	
+	$scope.registerItem = function() {
+		if ($scope.item.category === $scope.noCategory) {
+			delete $scope.item.category;
+		}
+		storeInDb($scope.item, new Date());
+		$scope.back('/home');
+		notificationService.notifyRegistered($scope.item.name);
 	};
 	
 	$scope.save = function() {

@@ -1,4 +1,4 @@
-expenseMeApp.controller('HomeCtrl', function($scope) {
+expenseMeApp.controller('HomeCtrl', function($scope, $location, notificationService) {
 	var itemsStr = localStorage[itemsKey];
 	if (itemsStr) {
 		$scope.items = JSON.parse(itemsStr);
@@ -13,14 +13,14 @@ expenseMeApp.controller('HomeCtrl', function($scope) {
 	$scope.registerExpense = function(item) {
 		if (item.price) {
 			storeInDb(item, new Date());
-			alertBox.show(item.name + ' registered');
+			notificationService.notifyRegistered(item.name);
 		} else {
 			bootbox.prompt("Price for " + item.name, function(price) {
 				if (price && !isNaN(price)) {
 					var newItem = jQuery.extend({}, item);
 					newItem.price = price;
 					storeInDb(newItem, new Date());
-					alertBox.show(newItem.name + ' registered');
+					notificationService.notifyRegistered(newItem.name);
 				} else {
 					return false;
 				}
@@ -29,27 +29,6 @@ expenseMeApp.controller('HomeCtrl', function($scope) {
 	};
 	
 	$scope.newExpense = function() {
-		// TODO show form to fill in details for expense
+		$location.path('/newItemOnTheFly');
 	};
 });
-
-// The following code is taken from bootboxjs.com
-var alertBox = (function() {
-	"use strict";
-
-	var elem, hideHandler, that = {};
-
-	that.init = function(options) {
-		elem = $(options.selector);
-	};
-
-	that.show = function(text) {
-		clearTimeout(hideHandler);
-
-		elem.find("span").html(text);
-		elem.delay(200).fadeIn().delay(2500).fadeOut();
-	};
-
-	return that;
-}());
-// end of bootboxjs.com snippet

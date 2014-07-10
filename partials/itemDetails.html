@@ -1,11 +1,13 @@
-<div ng-show="hasEightItems() && !update" class="alert alert-danger fade in">
+<div ng-show="hasEightItems() && status.newItem" class="alert alert-danger fade in">
 	<a href="#" class="close" data-dismiss="alert">&times;</a>
 	<strong>Error!</strong> There are already 8 items registered. You cannot add any more until you delete some.
 </div>
 
 <form name="itemForm" novalidate role="form" style="margin: 0 auto;">
+
+	<!-- ITEM'S NAME -->
 	<div class="required-field-block">
-		<input ng-disabled="hasEightItems() || update" type="text" placeholder="Item's name (Required)" class="form-control" name="name" ng-model="item.name" ng-minlength=3 ng-maxlength=20 required>
+		<input ng-disabled="(status.newItem && hasEightItems()) || status.updateItem" type="text" placeholder="Item's name (Required)" class="form-control" name="name" ng-model="item.name" ng-minlength=3 ng-maxlength=20 required>
 		<div class="required-icon">
 			<div class="text">*</div>
 		</div>
@@ -19,23 +21,40 @@
 		</div>
 	</div>
 	
-	<input ng-disabled="hasEightItems() && !update" ng-model="item.description" type="text" placeholder="Description" class="form-control">
+	<!-- ITEM'S DESCRIPTION -->
+	<input ng-disabled="hasEightItems() && status.newItem" ng-model="item.description" type="text" placeholder="Description" class="form-control">
 	
-	<div>
-		<input ng-disabled="hasEightItems() && !update" ng-model="item.price" type="text" name="price" placeholder="Default price, e.g. 12.20" class="form-control">
-		<div ng-show="itemForm.price.$invalid" class="alert alert-danger">
+	<!-- ITEM'S PRICE -->
+	<div ng-if="status.newItem || status.updateItem">
+		<input ng-disabled="hasEightItems() && status.newItem" ng-model="item.price" type="text" name="price" placeholder="Default price, e.g. 12.20" class="form-control" float>
+		<div ng-show="itemForm.price.$error.float" class="alert alert-danger">
 			<a href="#" class="close" data-dismiss="alert">&times;</a>
 			<strong>Error!</strong> Item's price should be a number.
 		</div>
 	</div>
 	
-	<select ng-disabled="hasEightItems() && !update" ng-model="item.category" class="form-control">
+	<div ng-if="status.newItemOnTheFly" class="required-field-block">
+		<input ng-model="item.price" type="text" name="price" placeholder="Price (Required), e.g. 12.20" class="form-control" required float>
+		<div class="required-icon">
+			<div class="text">*</div>
+		</div>
+		<div ng-show="itemForm.price.$dirty && itemForm.price.$invalid" class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			<strong>Error!</strong> 
+			<span ng-show="itemForm.price.$error.required">Item's price is required.</span>
+			<span ng-show="itemForm.price.$error.float">Item's price should be a number.</span>
+		</div>
+	</div>
+	
+	<!-- ITEM'S CATEGORY -->
+	<select ng-disabled="hasEightItems() && status.newItem" ng-model="item.category" class="form-control">
 		<option value="" selected>Select category</option>
 		<option ng-repeat="category in categories" ng-selected="item.category == category.name" value="{{category.name}}">{{category.name}}</option>
 		<option value="{{noCategory}}">{{noCategory}}</option>
 	</select>
 	
-	<div ng-show="!update">
+	<!-- BUTTONS -->
+	<div ng-show="status.newItem">
 		<button ng-click="back('/home')" class="btn btn-labeled btn-danger">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-remove"></i>
@@ -56,7 +75,7 @@
 		</button>
 	</div>
 	
-	<div ng-show="update">
+	<div ng-show="status.updateItem">
 		<button ng-click="back('/itemList')" class="btn btn-labeled btn-danger">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-arrow-left"></i>
@@ -74,6 +93,21 @@
 				<i class="glyphicon glyphicon-refresh"></i>
 			</span>
 			Update
+		</button>
+	</div>
+	
+	<div ng-show="status.newItemOnTheFly">
+		<button ng-click="back('/home')" class="btn btn-labeled btn-danger">
+			<span class="btn-label">
+				<i class="glyphicon glyphicon-remove"></i>
+			</span>
+			Cancel
+		</button>
+		<button ng-disabled="!canBeSaved()" ng-click="registerItem()" class="btn btn-labeled btn-success">
+			<span class="btn-label">
+				<i class="glyphicon glyphicon-ok"></i>
+			</span>
+			Register
 		</button>
 	</div>
 </form>

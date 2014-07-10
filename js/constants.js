@@ -3,27 +3,27 @@ var noCategory = "None of the above";
 var categories = [
 	{
 		name: "Smoking",
-		icon: "glyphicon-pencil"
+		icon: "glyphicon glyphicon-pencil"
 	}, 
 	{
 		name: "Food",
-		icon: "glyphicon-heart"
+		icon: "glyphicon glyphicon-heart"
 	},
 	{
 		name: "Drink",
-		icon: "glyphicon-glass"
+		icon: "glyphicon glyphicon-glass"
 	},
 	{
 		name: "Transportation",
-		icon: "glyphicon-user"
+		icon: "glyphicon glyphicon-user"
 	},
 	{
 		name: "Bills",
-		icon: "glyphicon-film"
+		icon: "glyphicon glyphicon-film"
 	},
 	{
 		name: "Gas",
-		icon: "glyphicon-ok"
+		icon: "glyphicon glyphicon-ok"
 	}
 ];
 

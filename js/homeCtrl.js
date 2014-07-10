@@ -3,12 +3,14 @@ expenseMeApp.controller('HomeCtrl', function($scope, $location, notificationServ
 	$scope.items = [];
 	if (itemsStr) {
 		var allItems = JSON.parse(itemsStr);
-		allItems.push(undefined); // dummy element for the additional button that is not part of the items
-		for (var i = 0; i < allItems.length; i++) {
-			if (i % 3 == 0) {
-				$scope.items.push([]);
+		if (allItems.length > 0) {
+			allItems.push(undefined); // dummy element for the additional button that is not part of the items
+			for (var i = 0; i < allItems.length; i++) {
+				if (i % 3 == 0) {
+					$scope.items.push([]);
+				}
+				$scope.items[$scope.items.length - 1].push(allItems[i]);
 			}
-			$scope.items[$scope.items.length - 1].push(allItems[i]);
 		}
 	}
 	$scope.iconPerCategory = [];

@@ -8,3 +8,7 @@
 		<p ng-if="!item" class="text-center">Other</p>
 	</div>
 </div>
+
+<div ng-show="items.length == 0" class="alert alert-warning fade in">
+	<strong>There are no items. Please add some items through <a href="#newItem">here.</a></strong>
+</div>

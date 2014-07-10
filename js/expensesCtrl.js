@@ -49,7 +49,7 @@ expenseMeApp.controller('ExpensesCtrl', function($scope) {
 					},
 					series: [{
 						type: 'pie',
-						name: 'Browser share',
+						name: 'Expenses',
 						data: data
 					}]
 				});

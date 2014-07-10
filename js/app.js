@@ -86,6 +86,9 @@ expenseMeApp.service('notificationService', function() {
 	return {
 		notifyRegistered: function(itemName) {
 			alertBox.show(itemName + ' registered');
+		},
+		notifyAdded: function(itemName) {
+			alertBox.show(itemName + ' added');
 		}
 	};
 });
@@ -104,7 +107,7 @@ var alertBox = (function() {
 		clearTimeout(hideHandler);
 
 		elem.find("span").html(text);
-		elem.delay(200).fadeIn().delay(2500).fadeOut();
+		elem.delay(200).fadeIn().delay(1000).fadeOut();
 	};
 
 	return that;

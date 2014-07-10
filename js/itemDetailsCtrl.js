@@ -72,6 +72,7 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 	
 	$scope.saveAndClear = function() {
 		updateItems($scope.item, $scope.existingItems);
+		notificationService.notifyAdded($scope.item.name);
 		$scope.itemForm.$setPristine();
 		$scope.item = {};
 	};

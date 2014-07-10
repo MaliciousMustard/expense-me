@@ -24,6 +24,9 @@ expenseMeApp.controller('ExpensesCtrl', function($scope) {
 				
 				// Build the chart
 				$('#container').highcharts({
+					credits: {
+						enabled: false
+					},
 					chart: {
 						plotBackgroundColor: null,
 						plotBorderWidth: null,

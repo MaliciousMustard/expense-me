@@ -19,9 +19,9 @@
 	<preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
 	
-	<icon src="icons/android/drawable_ldpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="ldpi" />
-    <icon src="icons/android/drawable_mdpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="mdpi" />
-    <icon src="icons/android/drawable_hdpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="hdpi" />
-    <icon src="icons/android/drawable_xhdpi/ic_launcher.png"  gap:platform="android"    gap:qualifier="xhdpi" />
+	<icon src="icons/android/drawable-ldpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="ldpi" />
+    <icon src="icons/android/drawable-mdpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="mdpi" />
+    <icon src="icons/android/drawable-hdpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="hdpi" />
+    <icon src="icons/android/drawable-xhdpi/ic_launcher.png"  gap:platform="android"    gap:qualifier="xhdpi" />
 	
 </widget>

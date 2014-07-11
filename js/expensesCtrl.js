@@ -1,8 +1,15 @@
 expenseMeApp.controller('ExpensesCtrl', function($scope) {
+	$scope.months = months;
 	$scope.iconPerCategory = [];
 	for (i in categories) {
 		$scope.iconPerCategory[categories[i].name] = categories[i].icon;
 	}
+	
+	$scope.$watch('showDate', function(newDate) {
+		$scope.showDateStr = '' + (newDate.month + 1) + '-' + newDate.year;
+		getExpensesSummaryFromDb(newDate.year, newDate.month, updatePieChartWithResults);
+		getExpensesFromDb(newDate.year, newDate.month, updateScopeWithResults);
+	});
 
 	$scope.days = [];
 	$scope.expenses = [];
@@ -17,43 +24,36 @@ expenseMeApp.controller('ExpensesCtrl', function($scope) {
 	}
 	
 	var updatePieChartWithResults = function(data) {
-		$(function () {
-			var chart;
-			
-			$(document).ready(function () {
-				
-				// Build the chart
-				$('#container').highcharts({
-					credits: {
+		// Build the chart
+		$('#container').highcharts({
+			credits: {
+				enabled: false
+			},
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: false
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			},
+			title: { text: ""},
+			exporting: { enabled: false },
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
 						enabled: false
 					},
-					chart: {
-						plotBackgroundColor: null,
-						plotBorderWidth: null,
-						plotShadow: false
-					},
-					tooltip: {
-						pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-					},
-					title: { text: ""},
-					exporting: { enabled: false },
-					plotOptions: {
-						pie: {
-							allowPointSelect: true,
-							cursor: 'pointer',
-							dataLabels: {
-								enabled: false
-							},
-							showInLegend: true
-						}
-					},
-					series: [{
-						type: 'pie',
-						name: 'Expenses',
-						data: data
-					}]
-				});
-			});
+					showInLegend: true
+				}
+			},
+			series: [{
+				type: 'pie',
+				name: 'Expenses',
+				data: data
+			}]
 		});
 	};
 	
@@ -65,6 +65,9 @@ expenseMeApp.controller('ExpensesCtrl', function($scope) {
 		return total.toFixed(2);
 	};
 	var date = new Date();
-	getExpensesSummaryFromDb(date.getFullYear(), date.getMonth(), updatePieChartWithResults);
-	getExpensesFromDb(date.getFullYear(), date.getMonth(), updateScopeWithResults);
+	$scope.showDate = {
+		month: date.getMonth(),
+		year: date.getFullYear()
+	};
+	
 });

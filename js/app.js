@@ -82,6 +82,28 @@ expenseMeApp.directive('float', function() {
   };
 });
 
+expenseMeApp.directive('datetimez', function() {
+    return {
+        restrict: 'A',
+        require : 'ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+			element.datetimepicker({
+				autoclose: true,
+				format: "MM-yyyy",
+				viewMode: "months", 
+				minViewMode: "months",
+				pickTime: false
+			}).on('changeDate', function(e) {
+				scope.showDate = {
+					month: e.date.getMonth(),
+					year: e.date.getFullYear()
+				}
+				scope.$apply();
+			});
+        }
+    };
+});
+
 expenseMeApp.service('notificationService', function() {
 	return {
 		notifyRegistered: function(itemName) {

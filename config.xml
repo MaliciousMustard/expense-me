@@ -4,7 +4,7 @@
         id          = "gr.ntousias.expenseMe"
         version     = "1.0.0" >
 
-    <name>ExpenseMe</name>
+    <name>XpenseMe</name>
 
     <description>
         App that helps you keep track of your expenses in an easy and intuitive way!

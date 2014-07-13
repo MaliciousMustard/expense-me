@@ -64,3 +64,21 @@ function getExpensesSummaryFromDb(year, month, callback) {
 		}, null);
 	});
 }
+
+function removeExpenseFromDb(expenseTimestamp) {
+	if (!db) {
+		db = openDb();
+	}
+	db.transaction(function(tx) {
+		tx.executeSql('DELETE FROM EXPENSES WHERE timestamp=?', [expenseTimestamp]);
+	});
+}
+
+function updateExpenseInDb(expense) {
+	if (!db) {
+		db = openDb();
+	}
+	db.transaction(function(tx) {
+		tx.executeSql('UPDATE EXPENSES SET comments=?, price=?, category=? WHERE timestamp=?', [expense.comments, expense.price, expense.category, expense.timestamp]);
+	});
+}

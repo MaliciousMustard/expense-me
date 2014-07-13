@@ -6,6 +6,10 @@ expenseMeApp.config(['$routeProvider', function($routeProvider) {
 		when("/about", {
 			templateUrl: 'partials/about.html'
 		}).
+		when("/editExpense/:expense", {
+			templateUrl: 'partials/expenseDetails.html',
+			controller: 'ExpenseDetailsCtrl'
+		}).
 		when("/editItem/:itemName", {
 			templateUrl: 'partials/itemDetails.html',
 			controller: 'ItemDetailsCtrl',
@@ -111,6 +115,12 @@ expenseMeApp.service('notificationService', function() {
 		},
 		notifyAdded: function(itemName) {
 			alertBox.show(itemName + ' added');
+		},
+		notifyDeleted: function(itemName) {
+			alertBox.show(itemName + ' deleted');
+		},
+		notifyUpdated: function(itemName) {
+			alertBox.show(itemName + ' updated');
 		}
 	};
 });

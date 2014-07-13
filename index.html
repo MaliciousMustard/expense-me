@@ -44,7 +44,7 @@
 	    </div> <!-- /.navbar -->
 		
 		<div class="container" ng-view></div>
-		
+
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/angular.min.js"></script>
 		<script type="text/javascript" src="js/angular-route.min.js"></script>
@@ -53,6 +53,7 @@
 		<script type="text/javascript" src="js/highcharts.js"></script>
 		<script type="text/javascript" src="js/exporting.js"></script>
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 		
 		<script type="text/javascript" src="js/constants.js"></script>
 		<script type="text/javascript" src="js/database.js"></script>
@@ -63,6 +64,19 @@
 		<script type="text/javascript" src="js/expensesCtrl.js"></script>
 		<script type="text/javascript" src="js/expenseDetailsCtrl.js"></script>
 
+		<script type="text/javascript">
+		function findLanguage() {
+			navigator.globalization.getPreferredLanguage(
+			function (language) {    
+				alert('language: ' + language.value + '\n');
+			},
+			function () {
+			alert('Error getting language\n');
+			});
+		}
+		document.addEventListener("deviceready", findLanguage, false);
+		</script>
+		
 		<!-- The following snippet is taken from bootboxjs.com -->
 		<style>
 		.bb-alert {

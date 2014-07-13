@@ -13,7 +13,7 @@
         {{day}}
     </a>
 	<a ng-repeat="expense in expenses[day]" href="#editExpense/{{expense}}" class="list-group-item">
-        {{$index + 1}}. <img ng-if="expense.category" src="{{iconPerCategory[expense.category]}}"></img> {{expense.name}} ({{expense.time}}) <span class="badge">{{expense.price}} &#8364;</span>
+        {{$index + 1}}. <img ng-if="expense.category" ng-src="{{iconPerCategory[expense.category]}}"></img> {{expense.name}} ({{expense.time}}) <span class="badge">{{expense.price}} &#8364;</span>
     </a>
 	<a class="list-group-item active">
         Total for {{day}} <span class="badge">{{getTotal(expenses[day])}} &#8364;</span>

@@ -1,6 +1,6 @@
 <div ng-repeat="row in items" class="row">
 	<div ng-repeat="item in row" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 center-block">
-		<button ng-if="item && item.category" ng-click="registerExpense(item)" type="button" class="btn {{item.color}} btn-circle center-block"><img src="{{iconPerCategory[item.category]}}"></img></button>
+		<button ng-if="item && item.category" ng-click="registerExpense(item)" type="button" class="btn {{item.color}} btn-circle center-block"><img ng-src="{{iconPerCategory[item.category]}}"></img></button>
 		<button ng-if="item && !item.category" ng-click="registerExpense(item)" type="button" class="btn {{item.color}} btn-circle center-block">{{item.name.charAt(0).toUpperCase()}}</button>
 		<p ng-if="item" class="text-center">{{item.name}}</p>
 		

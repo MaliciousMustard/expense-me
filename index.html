@@ -54,6 +54,9 @@
 		<script type="text/javascript" src="js/exporting.js"></script>
 		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 		
+		<script type="text/javascript" src="js/langs/en_lang.js"></script>
+		<script type="text/javascript" src="js/langs/gr_lang.js"></script>
+		
 		<script type="text/javascript" src="js/constants.js"></script>
 		<script type="text/javascript" src="js/database.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
@@ -63,50 +66,7 @@
 		<script type="text/javascript" src="js/itemListCtrl.js"></script>
 		<script type="text/javascript" src="js/expensesCtrl.js"></script>
 		<script type="text/javascript" src="js/expenseDetailsCtrl.js"></script>
-		
-		<script type="text/javascript" src="js/langs/en_lang.js"></script>
-		<script type="text/javascript" src="js/langs/gr_lang.js"></script>
-
-		<script type="text/javascript">
-		function useLanguage(language) {
-			if (language === "Ελληνικά") {
-				alert("Found greek");
-				lang = gr_lang;
-				alert("Used greek");
-				alert(lang);
-			} else {
-				alert("Found english");
-				lang = en_lang;
-				alert("Used english");
-				alert(lang);
-			}
-		}
-		
-		function findLanguage() {
-			var storedLangPreference = localStorage[langKey];
-			if (storedLangPreference) {
-				useLanguage(storedLangPreference);
-			} else {
-				navigator.globalization.getPreferredLanguage(
-					function (language) {
-						useLanguage(language.value);
-					},
-					function () {
-						useLanguage("English");
-					});
-			}
-		}
-		
-		function initializeAngular() {
-			alert("Initializing angular");
-			findLanguage();
-			alert("Found language: " + lang);
-			angular.bootstrap($('body'), ['expenseMeApp']);
-			alert("Angular started!");
-		}
-		
-		document.addEventListener("deviceready", initializeAngular, false);
-		</script>
+		<script type="text/javascript" src="js/initializeEnvironment.js"></script>
 		
 		<div class="container" ng-controller="MainCtrl" ng-view></div>
 		

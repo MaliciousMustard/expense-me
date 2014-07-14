@@ -1,5 +1,5 @@
 function useLanguage(language) {
-	if (language === "Ελληνικά") {
+	if (language === "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac") {
 		lang = gr_lang;
 	} else {
 		lang = en_lang;

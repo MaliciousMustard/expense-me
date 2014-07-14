@@ -2,6 +2,8 @@ expenseMeApp.controller('HomeCtrl', function($scope, $location, notificationServ
 	$scope.beenHereBefore = localStorage[beenHereBefore];
 	localStorage[beenHereBefore] = "true";
 	
+	$scope.lang = lang;
+	
 	var itemsStr = localStorage[itemsKey];
 	$scope.items = [];
 	if (itemsStr) {

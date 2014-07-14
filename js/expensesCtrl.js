@@ -1,4 +1,5 @@
 expenseMeApp.controller('ExpensesCtrl', function($scope) {
+	$scope.lang = lang;
 	$scope.months = months;
 	$scope.iconPerCategory = [];
 	for (i in categories) {

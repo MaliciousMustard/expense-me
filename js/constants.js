@@ -1,3 +1,5 @@
+var langKey = "random394885996049";
+var lang = undefined;
 var itemsKey = "random2938495873";
 var beenHereBefore = "beenHereBefore293949";
 var noCategory = "None of the above";

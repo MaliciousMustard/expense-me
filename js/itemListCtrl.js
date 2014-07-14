@@ -5,4 +5,5 @@ expenseMeApp.controller('ItemListCtrl', function($scope) {
 	} else {
 		$scope.existingItems = [];
 	}
+	$scope.lang = lang;
 });

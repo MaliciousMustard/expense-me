@@ -5,18 +5,18 @@
 		<p ng-if="item" class="text-center">{{item.name}}</p>
 		
 		<button ng-if="!item" ng-click="newExpense()" type="button" class="btn btn-default btn-circle center-block"><i class="glyphicon glyphicon-plus"></i></button>
-		<p ng-if="!item" class="text-center">Other</p>
+		<p ng-if="!item" class="text-center">{{lang.other}}</p>
 	</div>
 </div>
 
 <div ng-show="items.length == 0 && beenHereBefore" class="alert alert-warning fade in">
-	<strong>No items found. Please add some items through <a href="#newItem">here.</a></strong>
+	<strong>{{lang.noItemsFoundMsg}}<a href="#newItem">{{lang.addItemsMsg}}</a></strong>
 </div>
 
 <div ng-show="items.length == 0 && !beenHereBefore" class="alert alert-info fade in">
 	<strong>
-		<a href="#newItem">Welcome to ExpenseMe! We hope you will enjoy it! 
+		<a href="#newItem">{{lang.welcomeMsg}} 
 		<br />
-		In order to start keeping track of your expenses please add some items.</a>
+		{{lang.howStartMsg}}</a>
 	</strong>
 </div>

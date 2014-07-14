@@ -4,25 +4,25 @@
 	<input ng-disabled="true" type="text" class="form-control" name="name" ng-model="expense.name">
 	
 	<!-- ITEM'S DESCRIPTION -->
-	<input ng-model="expense.comments" type="text" placeholder="Description" class="form-control">
+	<input ng-model="expense.comments" type="text" placeholder="{{lang.descriptionPlaceholder}}" class="form-control">
 	
 	<!-- ITEM'S PRICE -->
 	<div class="required-field-block">
-		<input ng-model="expense.price" type="text" name="price" placeholder="Price (Required), e.g. 12.20" class="form-control" required float>
+		<input ng-model="expense.price" type="text" name="price" placeholder="{{lang.priceRequiredPlaceholder}}" class="form-control" required float>
 		<div class="required-icon">
 			<div class="text">*</div>
 		</div>
 		<div ng-show="expenseForm.price.$dirty && expenseForm.price.$invalid" class="alert alert-danger">
 			<a href="#" class="close" data-dismiss="alert">&times;</a>
-			<strong>Error!</strong> 
-			<span ng-show="expenseForm.price.$error.required">Item's price is required.</span>
-			<span ng-show="expenseForm.price.$error.float">Item's price should be a number.</span>
+			<strong>{{lang.errorText}}</strong> 
+			<span ng-show="expenseForm.price.$error.required">{{lang.priceRequiredMsg}}</span>
+			<span ng-show="expenseForm.price.$error.float">{{lang.priceNoNumberMsg}}</span>
 		</div>
 	</div>
 	
 	<!-- ITEM'S CATEGORY -->
 	<select ng-model="expense.category" class="form-control">
-		<option value="" selected>Select category</option>
+		<option value="" selected>{{lang.selectCategory}}</option>
 		<option ng-repeat="category in categories" ng-selected="expense.category == category.name" value="{{category.name}}">{{category.name}}</option>
 		<option value="{{noCategory}}">{{noCategory}}</option>
 	</select>
@@ -33,13 +33,13 @@
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-trash"></i>
 			</span>
-			Delete
+			{{lang.deleteBtnText}}
 		</button>
 		<button ng-disabled="!canBeSaved()" ng-click="updateExpense()" class="btn btn-labeled btn-success">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-refresh"></i>
 			</span>
-			Update
+			{{lang.updateBtnText}}
 		</button>
 	</div>
 </form>

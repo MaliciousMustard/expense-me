@@ -1,5 +1,5 @@
 <div id="date" class="input-append form-horizontal form-group" style="margin: 0 auto; margin-bottom: 10px" datetimez ng-model="var1">
-	<label for="pickMonth" class="control-label">Select month</label>
+	<label for="pickMonth" class="control-label">{{lang.selectMonth}}</label>
 	<input ng-model="showDateStr" data-format="MM-yyyy" type="text" id="input1" name="pickMonth"></input>
 	<span class="add-on">
 		<i data-time-icon="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
@@ -16,10 +16,10 @@
         {{$index + 1}}. <img ng-if="expense.category" ng-src="{{iconPerCategory[expense.category]}}"></img> {{expense.name}} ({{expense.time}}) <span class="badge">{{expense.price}} &#8364;</span>
     </a>
 	<a class="list-group-item active">
-        Total for {{day}} <span class="badge">{{getTotal(expenses[day])}} &#8364;</span>
+        {{lang.totalFor}} {{day}} <span class="badge">{{getTotal(expenses[day])}} &#8364;</span>
     </a>
 </div>
 
 <div ng-if="days.length == 0" class="alert alert-warning fade in">
-	<strong>No expenses found for {{months[showDate.month]}} {{showDate.year}}.</strong>
+	<strong>{{lang.noExpensesFound}} {{months[showDate.month]}} {{showDate.year}}.</strong>
 </div>

@@ -1,54 +1,54 @@
 <div ng-show="hasEightItems() && status.newItem" class="alert alert-danger fade in">
 	<a href="#" class="close" data-dismiss="alert">&times;</a>
-	<strong>Error!</strong> There are already 8 items registered. You cannot add any more until you delete some.
+	<strong>{{lang.errorText}}</strong> {{lang.alreadyFull}}
 </div>
 
 <form name="itemForm" novalidate role="form" style="margin: 0 auto;">
 
 	<!-- ITEM'S NAME -->
 	<div class="required-field-block">
-		<input ng-disabled="(status.newItem && hasEightItems()) || status.updateItem" type="text" placeholder="Item's name (Required)" class="form-control" name="name" ng-model="item.name" ng-minlength=3 ng-maxlength=20 required>
+		<input ng-disabled="(status.newItem && hasEightItems()) || status.updateItem" type="text" placeholder="{{lang.itemNamePlaceholder}}" class="form-control" name="name" ng-model="item.name" ng-minlength=3 ng-maxlength=20 required>
 		<div class="required-icon">
 			<div class="text">*</div>
 		</div>
 		<div ng-show="itemForm.name.$dirty && (itemForm.name.$invalid || itemForm.name.$error.duplicate)" class="alert alert-danger fade in">
 			<a href="#" class="close" data-dismiss="alert">&times;</a>
-			<strong>Error!</strong> 
-			<span ng-show="itemForm.name.$error.duplicate">Item {{item.name}} already exists.</span>
-			<span ng-show="itemForm.name.$error.required">Item's name is required.</span>
-			<span ng-show="itemForm.name.$error.minlength">Item's name has to be at least 3 characters.</span>
-			<span ng-show="itemForm.name.$error.maxlength">Item's name cannot be longer than 20 characters.</span>
+			<strong>{{lang.errorText}}</strong> 
+			<span ng-show="itemForm.name.$error.duplicate">{{lang.item}} {{item.name}} {{lang.alreadyExists}}</span>
+			<span ng-show="itemForm.name.$error.required">{{lang.itemNameRequired}}</span>
+			<span ng-show="itemForm.name.$error.minlength">{{lang.itemNameAtLeastThreeChars}}</span>
+			<span ng-show="itemForm.name.$error.maxlength">{{lang.itemNameNoLongerThanTwentyChars}}</span>
 		</div>
 	</div>
 	
 	<!-- ITEM'S DESCRIPTION -->
-	<input ng-disabled="hasEightItems() && status.newItem" ng-model="item.description" type="text" placeholder="Description" class="form-control">
+	<input ng-disabled="hasEightItems() && status.newItem" ng-model="item.description" type="text" placeholder="{{lang.descriptionPlaceholder}}" class="form-control">
 	
 	<!-- ITEM'S PRICE -->
 	<div ng-if="status.newItem || status.updateItem">
-		<input ng-disabled="hasEightItems() && status.newItem" ng-model="item.price" type="text" name="price" placeholder="Default price, e.g. 12.20" class="form-control" float>
+		<input ng-disabled="hasEightItems() && status.newItem" ng-model="item.price" type="text" name="price" placeholder="{{lang.pricePlaceholder}}" class="form-control" float>
 		<div ng-show="itemForm.price.$error.float" class="alert alert-danger">
 			<a href="#" class="close" data-dismiss="alert">&times;</a>
-			<strong>Error!</strong> Item's price should be a number.
+			<strong>{{lang.errorText}}</strong> {{lang.priceNoNumberMsg}}
 		</div>
 	</div>
 	
 	<div ng-if="status.newItemOnTheFly" class="required-field-block">
-		<input ng-model="item.price" type="text" name="price" placeholder="Price (Required), e.g. 12.20" class="form-control" required float>
+		<input ng-model="item.price" type="text" name="price" placeholder="{{lang.priceRequiredPlaceholder}}" class="form-control" required float>
 		<div class="required-icon">
 			<div class="text">*</div>
 		</div>
 		<div ng-show="itemForm.price.$dirty && itemForm.price.$invalid" class="alert alert-danger">
 			<a href="#" class="close" data-dismiss="alert">&times;</a>
-			<strong>Error!</strong> 
-			<span ng-show="itemForm.price.$error.required">Item's price is required.</span>
-			<span ng-show="itemForm.price.$error.float">Item's price should be a number.</span>
+			<strong>{{lang.errorText}}</strong> 
+			<span ng-show="itemForm.price.$error.required">{{lang.priceRequiredMsg}}</span>
+			<span ng-show="itemForm.price.$error.float">{{lang.priceNoNumberMsg}}</span>
 		</div>
 	</div>
 	
 	<!-- ITEM'S CATEGORY -->
 	<select ng-disabled="hasEightItems() && status.newItem" ng-model="item.category" class="form-control">
-		<option value="" selected>Select category</option>
+		<option value="" selected>{{lang.selectCategory}}</option>
 		<option ng-repeat="category in categories" ng-selected="item.category == category.name" value="{{category.name}}">{{category.name}}</option>
 		<option value="{{noCategory}}">{{noCategory}}</option>
 	</select>
@@ -59,19 +59,19 @@
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-remove"></i>
 			</span>
-			Cancel
+			{{lang.cancelBtnText}}
 		</button>
 		<button ng-disabled="!canBeSaved() || hasEightItems()" ng-click="save()" class="btn btn-labeled btn-primary">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-ok"></i>
 			</span>
-			Save
+			{{lang.saveBtnText}}
 		</button>
 		<button ng-disabled="!canBeSaved() || hasEightItems()" ng-click="saveAndClear()" class="btn btn-labeled btn-success">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-ok"></i>
 			</span>
-			Save and add another
+			{{lang.saveAndAddAnotherBtnText}}
 		</button>
 	</div>
 	
@@ -80,19 +80,19 @@
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-arrow-left"></i>
 			</span>
-			Back
+			{{lang.backBtnText}}
 		</button>
 		<button ng-disabled="!canBeSaved()" ng-click="deleteItem()" class="btn btn-labeled btn-danger">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-trash"></i>
 			</span>
-			Delete
+			{{lang.deleteBtnText}}
 		</button>
 		<button ng-disabled="!canBeSaved()" ng-click="updateItem()" class="btn btn-labeled btn-success">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-refresh"></i>
 			</span>
-			Update
+			{{lang.updateBtnText}}
 		</button>
 	</div>
 	
@@ -101,13 +101,13 @@
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-remove"></i>
 			</span>
-			Cancel
+			{{lang.cancelBtnText}}
 		</button>
 		<button ng-disabled="!canBeSaved()" ng-click="registerItem()" class="btn btn-labeled btn-success">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-ok"></i>
 			</span>
-			Register
+			{{lang.registerBtnText}}
 		</button>
 	</div>
 </form>

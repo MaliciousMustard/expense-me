@@ -1,4 +1,5 @@
 expenseMeApp.controller('HomeCtrl', function($scope, $location, notificationService) {
+	alert("Hello world from home ctrl");
 	$scope.beenHereBefore = localStorage[beenHereBefore];
 	localStorage[beenHereBefore] = "true";
 	

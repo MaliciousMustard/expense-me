@@ -92,8 +92,11 @@
 		}
 		
 		function initializeAngular() {
+			alert("Initializing angular");
 			findLanguage();
+			alert("Found language: " + lang);
 			angular.bootstrap($('body'), ['expenseMeApp']);
+			alert("Angular started!");
 		}
 		
 		document.addEventListener("deviceready", initializeAngular, false);

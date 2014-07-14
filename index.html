@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="expenseMeApp">
+<html>
   <head>
     <title>ExpenseMe</title>
 	
@@ -90,7 +90,13 @@
 					});
 			}
 		}
-		document.addEventListener("deviceready", findLanguage, false);
+		
+		function initializeAngular() {
+			findLanguage();
+			angular.bootstrap($('body'), ['expenseMeApp']);
+		}
+		
+		document.addEventListener("deviceready", initializeAngular, false);
 		</script>
 		
 		<div class="container" ng-controller="MainCtrl" ng-view></div>

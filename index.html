@@ -69,10 +69,16 @@
 
 		<script type="text/javascript">
 		function useLanguage(language) {
-			if (language == "Ελληνικά") {
+			if (language === "Ελληνικά") {
+				alert("Found greek");
 				lang = gr_lang;
+				alert("Used greek");
+				alert(lang);
 			} else {
+				alert("Found english");
 				lang = en_lang;
+				alert("Used english");
+				alert(lang);
 			}
 		}
 		

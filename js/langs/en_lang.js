@@ -10,7 +10,7 @@ var en_lang = {
 	descriptionPlaceholder: "Description",
 	editItems: "Edit items",
 	errorText: "Error!",
-	home: "Home"
+	home: "Home",
 	howStartMsg: "In order to start keeping track of your expenses please add some items.",
 	item: "Item",
 	itemNameAtLeastThreeChars: "Item's name has to be at least 3 characters.",

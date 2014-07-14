@@ -1,14 +1,8 @@
 function useLanguage(language) {
 	if (language === "Ελληνικά") {
-		alert("Found greek");
 		lang = gr_lang;
-		alert("Used greek");
-		alert(lang);
 	} else {
-		alert("Found english");
 		lang = en_lang;
-		alert("Used english");
-		alert(lang);
 	}
 }
 
@@ -17,22 +11,23 @@ function findLanguage() {
 	if (storedLangPreference) {
 		useLanguage(storedLangPreference);
 	} else {
-		navigator.globalization.getPreferredLanguage(
-			function (language) {
-				useLanguage(language.value);
-			},
-			function () {
-				useLanguage("English");
-			});
+		if (navigator.globalization) {
+			navigator.globalization.getPreferredLanguage(
+				function (language) {
+					useLanguage(language.value);
+				},
+				function () {
+					useLanguage("English");
+				});
+		} else {
+			useLanguage("English");
+		}
 	}
 }
 
 function initializeAngular() {
-	alert("Initializing angular");
 	findLanguage();
-	alert("Found language: " + lang);
-	angular.bootstrap($('body'), ['expenseMeApp']);
-	alert("Angular started!");
+	angular.bootstrap(document, ['expenseMeApp']);
 }
 
 document.addEventListener("deviceready", initializeAngular, false);

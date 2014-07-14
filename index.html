@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/expenseMe.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<!--<script type="text/javascript" charset="utf-8" src="cordova.js"></script>-->
 	
 	<style>
 		body {
@@ -19,7 +19,7 @@
 	</style>
   </head>
   
-	<body>
+	<body ng-controller="MainCtrl" >
 	
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
@@ -44,31 +44,10 @@
 				</div><!--/.navbar-collapse -->
 			</div>
 	    </div> <!-- /.navbar -->
-
+		
+		<div class="container" ng-view></div>
+		
 		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/angular-route.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/bootbox.min.js"></script>
-		<script type="text/javascript" src="js/highcharts.js"></script>
-		<script type="text/javascript" src="js/exporting.js"></script>
-		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
-		
-		<script type="text/javascript" src="js/langs/en_lang.js"></script>
-		<script type="text/javascript" src="js/langs/gr_lang.js"></script>
-		
-		<script type="text/javascript" src="js/constants.js"></script>
-		<script type="text/javascript" src="js/database.js"></script>
-		<script type="text/javascript" src="js/app.js"></script>
-		<script type="text/javascript" src="js/mainCtrl.js"></script>
-		<script type="text/javascript" src="js/itemDetailsCtrl.js"></script>
-		<script type="text/javascript" src="js/homeCtrl.js"></script>
-		<script type="text/javascript" src="js/itemListCtrl.js"></script>
-		<script type="text/javascript" src="js/expensesCtrl.js"></script>
-		<script type="text/javascript" src="js/expenseDetailsCtrl.js"></script>
-		<script type="text/javascript" src="js/initializeEnvironment.js"></script>
-		
-		<div class="container" ng-controller="MainCtrl" ng-view></div>
 		
 		<!-- The following snippet is taken from bootboxjs.com -->
 		<style>
@@ -95,6 +74,29 @@
 			});
 		</script>
 		<!-- End of bootboxjs.com code -->
+
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/angular-route.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/bootbox.min.js"></script>
+		<script type="text/javascript" src="js/highcharts.js"></script>
+		<script type="text/javascript" src="js/exporting.js"></script>
+		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+		
+		<script type="text/javascript" src="js/langs/en_lang.js"></script>
+		<script type="text/javascript" src="js/langs/gr_lang.js"></script>
+		
+		<script type="text/javascript" src="js/constants.js"></script>
+		<script type="text/javascript" src="js/database.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/mainCtrl.js"></script>
+		<script type="text/javascript" src="js/itemDetailsCtrl.js"></script>
+		<script type="text/javascript" src="js/homeCtrl.js"></script>
+		<script type="text/javascript" src="js/itemListCtrl.js"></script>
+		<script type="text/javascript" src="js/expensesCtrl.js"></script>
+		<script type="text/javascript" src="js/expenseDetailsCtrl.js"></script>
+		<script type="text/javascript" src="js/settingsCtrl.js"></script>
+		<script type="text/javascript" src="js/initializeEnvironment.js"></script>
 	
 	</body>
 </html>

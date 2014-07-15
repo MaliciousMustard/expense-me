@@ -49,7 +49,7 @@
 	<!-- ITEM'S CATEGORY -->
 	<select ng-disabled="hasEightItems() && status.newItem" ng-model="item.category" class="form-control">
 		<option value="" selected>{{lang.selectCategory}}</option>
-		<option ng-repeat="category in categories" ng-selected="item.category == category.name" value="{{category.name}}">{{category.name}}</option>
+		<option ng-repeat="category in categories" ng-selected="item.category == category.value" value="{{category.value}}">{{category.name()}}</option>
 		<option value="{{noCategory}}">{{noCategory}}</option>
 	</select>
 	

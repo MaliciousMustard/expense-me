@@ -23,7 +23,7 @@
 	<!-- ITEM'S CATEGORY -->
 	<select ng-model="expense.category" class="form-control">
 		<option value="" selected>{{lang.selectCategory}}</option>
-		<option ng-repeat="category in categories" ng-selected="expense.category == category.name" value="{{category.name}}">{{category.name}}</option>
+		<option ng-repeat="category in categories" ng-selected="expense.category == category.value" value="{{category.value}}">{{category.name()}}</option>
 		<option value="{{noCategory}}">{{noCategory}}</option>
 	</select>
 	

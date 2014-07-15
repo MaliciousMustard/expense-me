@@ -20,7 +20,7 @@ expenseMeApp.controller('HomeCtrl', function($scope, $location, notificationServ
 	}
 	$scope.iconPerCategory = [];
 	for (i in categories) {
-		$scope.iconPerCategory[categories[i].name] = categories[i].icon;
+		$scope.iconPerCategory[categories[i].value] = categories[i].icon;
 	}
 	
 	$scope.registerExpense = function(item) {
@@ -28,7 +28,7 @@ expenseMeApp.controller('HomeCtrl', function($scope, $location, notificationServ
 			storeInDb(item, new Date());
 			notificationService.notifyRegistered(item.name);
 		} else {
-			bootbox.prompt("Price for " + item.name, function(price) {
+			bootbox.prompt($scope.lang.priceFor + item.name, function(price) {
 				if (price && !isNaN(price)) {
 					var newItem = jQuery.extend({}, item);
 					newItem.price = price;

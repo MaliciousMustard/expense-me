@@ -111,16 +111,16 @@ expenseMeApp.directive('datetimez', function() {
 expenseMeApp.service('notificationService', function() {
 	return {
 		notifyRegistered: function(itemName) {
-			alertBox.show(itemName + ' registered');
+			alertBox.show(itemName + ' ' + lang.registered);
 		},
 		notifyAdded: function(itemName) {
-			alertBox.show(itemName + ' added');
+			alertBox.show(itemName + ' ' + lang.added);
 		},
 		notifyDeleted: function(itemName) {
-			alertBox.show(itemName + ' deleted');
+			alertBox.show(itemName + ' ' + lang.deleted);
 		},
 		notifyUpdated: function(itemName) {
-			alertBox.show(itemName + ' updated');
+			alertBox.show(itemName + ' ' + lang.updated);
 		}
 	};
 });

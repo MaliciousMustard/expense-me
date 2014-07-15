@@ -2,74 +2,128 @@ var langKey = "random394885996049";
 var lang = null;
 var itemsKey = "random2938495873";
 var beenHereBefore = "beenHereBefore293949";
-var noCategory = "None of the above";
+var noCategory = function() {
+	return lang.noneOfTheAbove;
+};
+
 var categories = [
 	{
-		name: "Bills",
+		name: function() {
+			return lang.bills;
+		},
+		value: "Bills",
 		icon: "img/glyphicons_442_earphone.png"
 	},
 	{
-		name: "Book",
+		name: function() {
+			return lang.book;
+		},
+		value: "Book",
 		icon: "img/glyphicons_351_book_open.png"
 	},
 	{
-		name: "Cleaning",
+		name: function() {
+			return lang.cleaning;
+		},
+		value: "Cleaning",
 		icon: "img/glyphicons_067_cleaning.png"
 	},
 	{
-		name: "Clothing",
+		name: function() {
+			return lang.clothing;
+		},
+		value: "Clothing",
 		icon: "img/glyphicons_285_sweater.png"
 	},
 	{
-		name: "Coffee",
+		name: function() {
+			return lang.coffee;
+		},
+		value: "Coffee",
 		icon: "img/glyphicons_294_coffe_cup.png"
 	},
 	{
-		name: "Drink",
+		name: function() {
+			return lang.drink;
+		},
+		value: "Drink",
 		icon: "img/glyphicons_274_beer.png"
 	},
 	{
-		name: "Electronics",
+		name: function() {
+			return lang.electronics;
+		},
+		value: "Electronics",
 		icon: "img/glyphicons_166_ipod.png"
 	},
 	{
-		name: "Food",
+		name: function() {
+			return lang.food;
+		},
+		value: "Food",
 		icon: "img/glyphicons_276_cutlery.png"
 	},
 	{
-		name: "Gas",
+		name: function() {
+			return lang.gas;
+		},
+		value: "Gas",
 		icon: "img/glyphicons_005_car.png"
 	},
 	{
-		name: "Movies",
+		name: function() {
+			return lang.movies;
+		},
+		value: "Movies",
 		icon: "img/glyphicons_008_film.png"
 	},
 	{
-		name: "Music",
+		name: function() {
+			return lang.music;
+		},
+		value: "Music",
 		icon: "img/glyphicons_017_music.png"
 	},
 	{
-		name: "Pets",
+		name: function() {
+			return lang.pets;
+		},
+		value: "Pets",
 		icon: "img/glyphicons_002_dog.png"
 	},
 	{
-		name: "Shopping",
+		name: function() {
+			return lang.shopping;
+		},
+		value: "Shopping",
 		icon: "img/glyphicons_202_shopping_cart.png"
 	},
 	{
-		name: "Smoking",
+		name: function() {
+			return lang.smoking;
+		},
+		value: "Smoking",
 		icon: "img/glyphicons_362_smoking.png"
 	}, 
 	{
-		name: "Sports",
+		name: function() {
+			return lang.sports;
+		},
+		value: "Sports",
 		icon: "img/glyphicons_306_bicycle.png"
 	},
 	{
-		name: "Transportation",
+		name: function() {
+			return lang.transportation;
+		},
+		value: "Transportation",
 		icon: "img/glyphicons_014_train.png"
 	},
 	{
-		name: "Traveling",
+		name: function() {
+			return lang.travelling;
+		},
+		value: "Travelling",
 		icon: "img/glyphicons_033_luggage.png"
 	}
 ];
@@ -82,17 +136,6 @@ var colors = [
 	"btn-danger"
 ];
 
-var months = [
-	"January",
-	"February",
-	"March",
-	"April",
-	"May",
-	"June",
-	"July",
-	"August",
-	"September",
-	"October",
-	"November",
-	"December"
-];
+var months = function() {
+	return lang.months;
+};

@@ -36,7 +36,7 @@ function getExpensesFromDb(year, month, callback) {
 			for (i = 0; i < len; i++){
 				var currentItem = results.rows.item(i);
 				if (currentItem.day != currentDay) {
-					currentDayStr = months[currentItem.month] + ' ' + currentItem.day + ', ' + currentItem.year;
+					currentDayStr = months()[currentItem.month] + ' ' + currentItem.day + ', ' + currentItem.year;
 					days.push(currentDayStr);
 					data[currentDayStr] = [];
 					currentDay = currentItem.day;

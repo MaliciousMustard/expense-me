@@ -1,9 +1,9 @@
 expenseMeApp.controller('ExpensesCtrl', function($scope) {
 	$scope.lang = lang;
-	$scope.months = months;
+	$scope.months = months();
 	$scope.iconPerCategory = [];
 	for (i in categories) {
-		$scope.iconPerCategory[categories[i].name] = categories[i].icon;
+		$scope.iconPerCategory[categories[i].value] = categories[i].icon;
 	}
 	
 	$scope.$watch('showDate', function(newDate) {
@@ -52,7 +52,7 @@ expenseMeApp.controller('ExpensesCtrl', function($scope) {
 			},
 			series: [{
 				type: 'pie',
-				name: 'Expenses',
+				name: $scope.lang.expenses,
 				data: data
 			}]
 		});

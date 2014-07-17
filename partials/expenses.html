@@ -6,6 +6,21 @@
 	</span>
 </div>
 
+<div>
+	<button ng-click="exportCurrentMonth()" class="btn btn-labeled btn-primary">
+		<span class="btn-label">
+			<i class="glyphicon glyphicon-list-alt"></i>
+		</span>
+		{{lang.exportCurrentMonthBtnText}}
+	</button>
+	<button ng-click="exportAllExpenses()" class="btn btn-labeled btn-primary">
+		<span class="btn-label">
+			<i class="glyphicon glyphicon-list-alt"></i>
+		</span>
+		{{lang.exportAllExpensesBtnText}}
+	</button>
+</div>
+
 <div ng-show="days.length != 0" id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto; margin-bottom: 10px"></div>
 
 <div ng-repeat="day in days" class="list-group">

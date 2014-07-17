@@ -20,6 +20,8 @@ var en_lang = {
 	electronics: "Electronics",
 	errorText: "Error!",
 	expenses: "Expenses",
+	exportAllExpensesBtnText: "Export all",
+	exportCurrentMonthBtnText: "Export selected",
 	food: "Food",
 	gas: "Gas",
 	home: "Home",

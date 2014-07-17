@@ -1,4 +1,4 @@
-expenseMeApp.controller('ExpensesCtrl', function($scope) {
+expenseMeApp.controller('ExpensesCtrl', function($scope, $location) {
 	$scope.lang = lang;
 	$scope.months = months();
 	$scope.iconPerCategory = [];
@@ -69,6 +69,14 @@ expenseMeApp.controller('ExpensesCtrl', function($scope) {
 	$scope.showDate = {
 		month: date.getMonth(),
 		year: date.getFullYear()
+	};
+	
+	$scope.exportCurrentMonth = function() {
+		$location.path("mailto:antousias@gmail.com?subject=Export for July&body=This is the body");
+	};
+	
+	$scope.exportAllExpenses = function() {
+	
 	};
 	
 });

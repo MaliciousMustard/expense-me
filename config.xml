@@ -20,6 +20,7 @@
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
 	
 	<gap:plugin name="org.apache.cordova.globalization" />
+	<gap:plugin name="de.appplant.cordova.plugin.email-composer" />
 	
 	<icon src="icons/android/drawable-mdpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="mdpi" />
 	<icon src="icons/android/drawable-ldpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="ldpi" />

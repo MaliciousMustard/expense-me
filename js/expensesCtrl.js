@@ -72,7 +72,11 @@ expenseMeApp.controller('ExpensesCtrl', function($scope, $location) {
 	};
 	
 	$scope.exportCurrentMonth = function() {
-		$location.path("mailto:antousias@gmail.com?subject=Export for July&body=This is the body");
+		window.plugin.email.open({
+			to: ['antousias@gmail.com'],
+			subject: 'This is the subject',
+			body: 'This is the body'
+		});
 	};
 	
 	$scope.exportAllExpenses = function() {

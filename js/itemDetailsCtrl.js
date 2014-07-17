@@ -26,7 +26,7 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 	
 	$scope.status = status;
 	
-	$scope.noCategory = noCategory;
+	$scope.noCategory = noCategory();
 	
 	$scope.$watch('item.name', function(newVal) {
 		if (!$scope.status.updateItem && $scope.item.name && $scope.existingItems.filter(function(item) { return item.name === $scope.item.name; }).length > 0) {

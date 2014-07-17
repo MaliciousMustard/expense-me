@@ -2,7 +2,7 @@ expenseMeApp.controller('ExpenseDetailsCtrl', function($scope, $routeParams, $lo
 	$scope.lang = lang;
 	$scope.categories = categories; // categories are coming from constants.js
 	$scope.expense = JSON.parse($routeParams.expense);
-	$scope.noCategory = noCategory;
+	$scope.noCategory = noCategory();
 	
 	$scope.canBeSaved = function() {
 		return !$scope.expenseForm.price.$invalid;

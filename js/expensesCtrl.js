@@ -14,9 +14,23 @@ expenseMeApp.controller('ExpensesCtrl', function($scope, $location) {
 
 	$scope.days = [];
 	$scope.expenses = [];
-	var updateScopeWithResults = function(days, data) {
-		$scope.days = days;
-		$scope.expenses = data;
+	var updateScopeWithResults = function(items) {
+		var len = items.length;
+		$scope.days = [];
+		$scope.expenses = [];
+		var currentDay = 0;
+		var currentDayStr = undefined;
+		for (i = 0; i < len; i++){
+			var currentItem = items[i];
+			if (currentItem.day != currentDay) {
+				currentDayStr = months()[currentItem.month] + ' ' + currentItem.day + ', ' + currentItem.year;
+				$scope.days.push(currentDayStr);
+				$scope.expenses[currentDayStr] = [];
+				currentDay = currentItem.day;
+			}
+			$scope.expenses[currentDayStr].push(currentItem);
+		}
+
 		$scope.$apply();
 	};
 	
@@ -71,26 +85,37 @@ expenseMeApp.controller('ExpensesCtrl', function($scope, $location) {
 		year: date.getFullYear()
 	};
 	
-	$scope.exportCurrentMonth = function() {
-		var csvContents = 'Name,Price,Category,Day,Month,Year\n';
-		for (var i in $scope.expenses) {
-			var currDay = $scope.expenses[i];
-			for (var j in currDay) {
-				var currExpense = currDay[j];
+	var buildEmail = function(emailDetails, attachmentName) {
+		return function(data) {
+			var csvContents = 'Name,Price,Category,Day,Month,Year\n';
+			for (var i in data) {
+				var currExpense = data[i];
 				csvContents = csvContents + [currExpense.name, currExpense.price, currExpense.category, currExpense.day, (currExpense.month + 1), currExpense.year].join(',') + '\n';
 			}
-		}
-		var base64Contents = base64.encode(csvContents);
-		
-		window.plugin.email.open({
-			subject: [$scope.lang.expensesFor, $scope.months[$scope.showDate.month], $scope.showDate.year].join(' '),
-			body: [$scope.lang.findAttachedExpenses, $scope.months[$scope.showDate.month], $scope.showDate.year, $scope.lang.asGeneratedByExpenseMe].join(' ') + '.',
-			attachments: ['base64:hello.csv//' + base64Contents]
-		});
+			console.log(csvContents);
+			var base64Contents = base64.encode(csvContents);
+			emailDetails["attachments"] = ['base64:' + attachmentName + '//' + base64Contents];
+			
+			window.plugin.email.open();
+		};
 	};
 	
-	$scope.exportAllExpenses = function() {
-		console.log($scope.showDate);
+	$scope.exportCurrentMonth = function() {
+		var emailDetails = {
+			subject: [$scope.lang.expensesFor, $scope.months[$scope.showDate.month], $scope.showDate.year].join(' '),
+			body: [$scope.lang.findAttachedExpenses, $scope.months[$scope.showDate.month], $scope.showDate.year, $scope.lang.asGeneratedByExpenseMe].join(' ') + '.'
+		};
+		var attachmentName = 'Expenses_' + ($scope.showDate.month + 1) + '_' + $scope.showDate.year + '.csv';
+		getExpensesFromDb($scope.showDate.year, $scope.showDate.month, buildEmail(emailDetails, attachmentName));
+	};
+	
+	$scope.exportCurrentYear = function() {
+		var emailDetails = {
+			subject: [$scope.lang.expensesFor, $scope.showDate.year].join(' '),
+			body: [$scope.lang.findAttachedExpenses, $scope.showDate.year, $scope.lang.asGeneratedByExpenseMe].join(' ') + '.'
+		};
+		var attachmentName = 'Expenses_' + $scope.showDate.year + '.csv';
+		getExpensesFromDb($scope.showDate.year, -1, buildEmail(emailDetails, attachmentName));
 	};
 	
 });

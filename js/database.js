@@ -27,23 +27,19 @@ function getExpensesFromDb(year, month, callback) {
 		db = openDb();
 	}
 	db.transaction(function (tx) {
-		tx.executeSql('SELECT * FROM EXPENSES WHERE year = ' + year + ' AND month = ' + month + ' ORDER BY timestamp', [], function (tx, results) {
+		var args = [year];
+		var monthQuery = '';
+		if (month > -1) {
+			args.push(month);
+			monthQuery = ' AND month = ? ';
+		}
+		tx.executeSql('SELECT * FROM EXPENSES WHERE year = ? ' + monthQuery + ' ORDER BY timestamp', args, function (tx, results) {
 			var len = results.rows.length, i;
-			var days = [];
 			var data = [];
-			var currentDay = 0;
-			var currentDayStr = undefined;
-			for (i = 0; i < len; i++){
-				var currentItem = results.rows.item(i);
-				if (currentItem.day != currentDay) {
-					currentDayStr = months()[currentItem.month] + ' ' + currentItem.day + ', ' + currentItem.year;
-					days.push(currentDayStr);
-					data[currentDayStr] = [];
-					currentDay = currentItem.day;
-				}
-				data[currentDayStr].push(currentItem);
+			for (i = 0; i < len; i++) {
+				data.push(results.rows.item(i));
 			}
-			callback(days, data);
+			callback(data);
 		}, null);
 	});
 }
@@ -53,7 +49,7 @@ function getExpensesSummaryFromDb(year, month, callback) {
 		db = openDb();
 	}
 	db.transaction(function (tx) {
-		tx.executeSql('SELECT name, SUM(price) AS price_sum FROM EXPENSES WHERE year = ' + year + ' AND month = ' + month + ' GROUP BY name', [], function (tx, results) {
+		tx.executeSql('SELECT name, SUM(price) AS price_sum FROM EXPENSES WHERE year = ?  AND month = ? GROUP BY name', [year, month], function (tx, results) {
 			var len = results.rows.length, i;
 			var data = [];
 			for (i = 0; i < len; i++){

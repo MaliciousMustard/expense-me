@@ -11,13 +11,13 @@
 		<span class="btn-label">
 			<i class="glyphicon glyphicon-list-alt"></i>
 		</span>
-		{{lang.exportCurrentMonthBtnText}}
+		{{lang.exportBtnText}} {{months[showDate.month]}} {{showDate.year}}
 	</button>
-	<button ng-click="exportAllExpenses()" class="btn btn-labeled btn-primary">
+	<button ng-click="exportCurrentYear()" class="btn btn-labeled btn-primary">
 		<span class="btn-label">
 			<i class="glyphicon glyphicon-list-alt"></i>
 		</span>
-		{{lang.exportAllExpensesBtnText}}
+		{{lang.exportBtnText}} {{showDate.year}}
 	</button>
 </div>
 

@@ -72,9 +72,19 @@ expenseMeApp.controller('ExpensesCtrl', function($scope, $location) {
 	};
 	
 	$scope.exportCurrentMonth = function() {
+		var csvContents = 'Name,Price,Category,Day,Month,Year\n';
+		for (var i in $scope.expenses) {
+			var currDay = $scope.expenses[i];
+			for (var j in currDay) {
+				var currExpense = currDay[j];
+				csvContents = csvContents + [currExpense.name, currExpense.price, currExpense.category, currExpense.day, (currExpense.month + 1), currExpense.year].join(',') + '\n';
+			}
+		}
+		var base64Contents = btoa(unescape(encodeURIComponent(csvContents)));
 		window.plugin.email.open({
-			subject: $scope.lang.expensesFor + ' ' + $scope.months[$scope.showDate.month] + ' ' + $scope.showDate.year,
-			body: $scope.lang.findAttachedExpenses + ' ' + $scope.months[$scope.showDate.month] + ' ' + $scope.showDate.year + ' ' + $scope.lang.asGeneratedByExpenseMe + '.'
+			subject: [$scope.lang.expensesFor, $scope.months[$scope.showDate.month], $scope.showDate.year].join(' '),
+			body: [$scope.lang.findAttachedExpenses, $scope.months[$scope.showDate.month], $scope.showDate.year, $scope.lang.asGeneratedByExpenseMe].join(' ') + '.',
+			attachments: ['base64:hello.csv//' + base64Contents]
 		});
 	};
 	

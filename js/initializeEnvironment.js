@@ -31,3 +31,4 @@ function initializeAngular() {
 }
 
 document.addEventListener("deviceready", initializeAngular, false);
+//initializeAngular();

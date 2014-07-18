@@ -80,7 +80,8 @@ expenseMeApp.controller('ExpensesCtrl', function($scope, $location) {
 				csvContents = csvContents + [currExpense.name, currExpense.price, currExpense.category, currExpense.day, (currExpense.month + 1), currExpense.year].join(',') + '\n';
 			}
 		}
-		var base64Contents = btoa(unescape(encodeURIComponent(csvContents)));
+		var base64Contents = base64.encode(csvContents);
+		
 		window.plugin.email.open({
 			subject: [$scope.lang.expensesFor, $scope.months[$scope.showDate.month], $scope.showDate.year].join(' '),
 			body: [$scope.lang.findAttachedExpenses, $scope.months[$scope.showDate.month], $scope.showDate.year, $scope.lang.asGeneratedByExpenseMe].join(' ') + '.',

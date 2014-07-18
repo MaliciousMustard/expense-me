@@ -4,10 +4,10 @@
         id          = "gr.ntousias.expenseMe"
         version     = "1.0.0" >
 
-    <name>XpenseMe</name>
+    <name>ExpenseMe</name>
 
     <description>
-        App that helps you keep track of your expenses in an easy and intuitive way!
+        Application that helps you keep track of your expenses in an easy and intuitive way!
     </description>
 
     <author href="http://ntousias.gr" email="antousias@gmail.com">

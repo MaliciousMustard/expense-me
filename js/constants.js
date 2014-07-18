@@ -139,3 +139,7 @@ var colors = [
 var months = function() {
 	return lang.months;
 };
+
+var languages = function() {
+	return lang.languages;
+};

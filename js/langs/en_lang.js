@@ -10,6 +10,7 @@ var en_lang = {
 	bills: "Bills",
 	book: "Book",
 	cancelBtnText: "Cancel",
+	changeLanguageText: "Change the language of ExpenseMe to the one you prefer.",
 	cleaning: "Cleaning",
 	clothing: "Clothing",
 	coffee: "Coffee",
@@ -34,6 +35,11 @@ var en_lang = {
 	itemNameNoLongerThanTwentyChars: "Item's name cannot be longer than 20 characters.",
 	itemNamePlaceholder: "Item's name (Required)",
 	itemNameRequired: "Item's name is required.",
+	languages: [
+		{name: "Device language", value: "device"},
+		{name: "English", value: "English"},
+		{name: "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac", value: "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac"}
+	],
 	months: [
 		"January",
 		"February",
@@ -70,6 +76,7 @@ var en_lang = {
 	saveAndAddAnotherBtnText: "Save and add another",
 	selectCategory: "Select category",
 	selectMonth: "Select month",
+	selectLanguage: "Select language",
 	settings: "Settings",
 	shopping: "Shopping",
 	showExpenses: "Show expenses",

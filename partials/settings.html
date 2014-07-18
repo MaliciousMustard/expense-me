@@ -1,4 +1,17 @@
 <div class="list-group">
+	
+	<a class="list-group-item">
+		<div class="pull-right">
+			<select ng-options="language.value as language.name for language in languages" ng-model="selectedLanguage" ng-change="changeLanguage()">
+			</select>
+		</div>
+		<h4 class="list-group-item-heading">
+			{{lang.selectLanguage}}
+		</h4>
+		<p class="list-group-item-text">
+			{{lang.changeLanguageText}}
+		</p>
+	</a>
 
 	<a class="list-group-item">
 		<div class="btn-group btn-toggle pull-right"> 

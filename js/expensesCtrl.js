@@ -92,11 +92,9 @@ expenseMeApp.controller('ExpensesCtrl', function($scope, $location) {
 				var currExpense = data[i];
 				csvContents = csvContents + [currExpense.name, currExpense.price, currExpense.category, currExpense.day, (currExpense.month + 1), currExpense.year].join(',') + '\n';
 			}
-			console.log(csvContents);
 			var base64Contents = base64.encode(csvContents);
 			emailDetails["attachments"] = ['base64:' + attachmentName + '//' + base64Contents];
-			
-			window.plugin.email.open();
+			window.plugin.email.open(emailDetails);
 		};
 	};
 	

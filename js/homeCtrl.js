@@ -23,22 +23,13 @@ expenseMeApp.controller('HomeCtrl', function($scope, $location, notificationServ
 		$scope.iconPerCategory[categories[i].value] = categories[i].icon;
 	}
 	
+	$scope.select = function(item) {
+		$scope.selectedItem = jQuery.extend({}, item);
+	};
+	
 	$scope.registerExpense = function(item) {
-		if (item.price) {
-			storeInDb(item, new Date());
-			notificationService.notifyRegistered(item.name);
-		} else {
-			bootbox.prompt($scope.lang.priceFor + item.name, function(price) {
-				if (price && !isNaN(price)) {
-					var newItem = jQuery.extend({}, item);
-					newItem.price = price;
-					storeInDb(newItem, new Date());
-					notificationService.notifyRegistered(newItem.name);
-				} else {
-					return false;
-				}
-			});
-		}
+		storeInDb(item, new Date());
+		notificationService.notifyRegistered(item.name);
 	};
 	
 	$scope.newExpense = function() {

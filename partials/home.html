@@ -1,12 +1,51 @@
 <div ng-repeat="row in items" class="row">
 	<div ng-repeat="item in row" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 center-block">
-		<button ng-if="item && item.category" ng-click="registerExpense(item)" type="button" class="btn {{item.color}} btn-circle center-block"><img ng-src="{{iconPerCategory[item.category]}}"></img></button>
-		<button ng-if="item && !item.category" ng-click="registerExpense(item)" type="button" class="btn {{item.color}} btn-circle center-block">{{item.name.charAt(0).toUpperCase()}}</button>
+		<!-- we have a price for the item -->
+		<button ng-if="item && item.price" ng-click="registerExpense(item)" type="button" class="btn {{item.color}} btn-circle center-block">
+			<img ng-if="item.category" ng-src="{{iconPerCategory[item.category]}}"></img>
+			<span ng-if="!item.category">{{item.name.charAt(0).toUpperCase()}}</span>
+		</button>
+		<!-- no price for item -->
+		<button ng-if="item && !item.price" ng-click="select(item)" type="button" class="btn {{item.color}} btn-circle center-block" data-toggle="modal" data-target="#myModal">
+			<img ng-if="item.category" ng-src="{{iconPerCategory[item.category]}}"></img>
+			<span ng-if="!item.category">{{item.name.charAt(0).toUpperCase()}}</span>
+		</button>
 		<p ng-if="item" class="text-center">{{item.name}}</p>
 		
 		<button ng-if="!item" ng-click="newExpense()" type="button" class="btn btn-default btn-circle center-block"><i class="glyphicon glyphicon-plus"></i></button>
 		<p ng-if="!item" class="text-center">{{lang.other}}</p>
 	</div>
+</div>
+
+<!-- Popup for items that don't have a default price -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{lang.priceFor + selectedItem.name}}</h4>
+      </div>
+      <div class="modal-body">
+		<form name="itemForm" novalidate role="form" style="margin: 0 auto;">
+			<input ng-model="selectedItem.price" type="text" name="price" placeholder="{{lang.priceRequiredPlaceholder}}" class="form-control" required float>
+			<div ng-show="itemForm.price.$dirty && itemForm.price.$invalid" class="alert alert-danger">
+				<a href="#" class="close" data-dismiss="alert">&times;</a>
+				<strong>{{lang.errorText}}</strong> 
+				<span ng-show="itemForm.price.$error.required">{{lang.priceRequiredMsg}}</span>
+				<span ng-show="itemForm.price.$error.float">{{lang.priceNoNumberMsg}}</span>
+			</div>
+		</form>
+      </div>
+      <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">
+			{{lang.cancelBtnText}}
+		</button>
+		<button ng-disabled="itemForm.price.$invalid" ng-click="registerExpense(selectedItem)" type="button" class="btn btn-success" data-dismiss="modal">
+			{{lang.registerBtnText}}
+		</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div ng-show="items.length == 0 && beenHereBefore" class="alert alert-warning fade in">

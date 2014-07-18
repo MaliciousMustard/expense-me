@@ -73,14 +73,13 @@ expenseMeApp.controller('ExpensesCtrl', function($scope, $location) {
 	
 	$scope.exportCurrentMonth = function() {
 		window.plugin.email.open({
-			to: ['antousias@gmail.com'],
-			subject: 'This is the subject',
-			body: 'This is the body'
+			subject: $scope.lang.expensesFor + ' ' + $scope.months[$scope.showDate.month] + ' ' + $scope.showDate.year,
+			body: $scope.lang.findAttachedExpenses + ' ' + $scope.months[$scope.showDate.month] + ' ' + $scope.showDate.year + ' ' + $scope.lang.asGeneratedByExpenseMe + '.'
 		});
 	};
 	
 	$scope.exportAllExpenses = function() {
-	
+		console.log($scope.showDate);
 	};
 	
 });

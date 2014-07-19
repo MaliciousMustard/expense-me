@@ -1,4 +1,4 @@
-<div ng-show="hasEightItems() && status.newItem" class="alert alert-danger fade in">
+<div ng-show="hasMaxItems() && status.newItem" class="alert alert-danger fade in">
 	<a href="#" class="close" data-dismiss="alert">&times;</a>
 	<strong>{{lang.errorText}}</strong> {{lang.alreadyFull}}
 </div>
@@ -7,7 +7,7 @@
 
 	<!-- ITEM'S NAME -->
 	<div class="required-field-block">
-		<input ng-disabled="(status.newItem && hasEightItems()) || status.updateItem" type="text" placeholder="{{lang.itemNamePlaceholder}}" class="form-control" name="name" ng-model="item.name" ng-minlength=3 ng-maxlength=20 required>
+		<input ng-disabled="(status.newItem && hasMaxItems()) || status.updateItem" type="text" placeholder="{{lang.itemNamePlaceholder}}" class="form-control" name="name" ng-model="item.name" ng-minlength=3 ng-maxlength=20 required>
 		<div class="required-icon">
 			<div class="text">*</div>
 		</div>
@@ -22,11 +22,11 @@
 	</div>
 	
 	<!-- ITEM'S DESCRIPTION -->
-	<input ng-disabled="hasEightItems() && status.newItem" ng-model="item.description" type="text" placeholder="{{lang.descriptionPlaceholder}}" class="form-control">
+	<input ng-disabled="hasMaxItems() && status.newItem" ng-model="item.description" type="text" placeholder="{{lang.descriptionPlaceholder}}" class="form-control">
 	
 	<!-- ITEM'S PRICE -->
 	<div ng-if="status.newItem || status.updateItem">
-		<input ng-disabled="hasEightItems() && status.newItem" ng-model="item.price" type="text" name="price" placeholder="{{lang.pricePlaceholder}}" class="form-control" float>
+		<input ng-disabled="hasMaxItems() && status.newItem" ng-model="item.price" type="text" name="price" placeholder="{{lang.pricePlaceholder}}" class="form-control" float>
 		<div ng-show="itemForm.price.$error.float" class="alert alert-danger">
 			<a href="#" class="close" data-dismiss="alert">&times;</a>
 			<strong>{{lang.errorText}}</strong> {{lang.priceNoNumberMsg}}
@@ -47,7 +47,7 @@
 	</div>
 	
 	<!-- ITEM'S CATEGORY -->
-	<select ng-disabled="hasEightItems() && status.newItem" ng-model="item.category" class="form-control">
+	<select ng-disabled="hasMaxItems() && status.newItem" ng-model="item.category" class="form-control">
 		<option value="" selected>{{lang.selectCategory}}</option>
 		<option ng-repeat="category in categories" ng-selected="item.category == category.value" value="{{category.value}}">{{category.name()}}</option>
 		<option value="{{noCategory}}">{{noCategory}}</option>
@@ -61,13 +61,13 @@
 			</span>
 			{{lang.cancelBtnText}}
 		</button>
-		<button ng-disabled="!canBeSaved() || hasEightItems()" ng-click="save()" class="btn btn-labeled btn-primary">
+		<button ng-disabled="!canBeSaved() || hasMaxItems()" ng-click="save()" class="btn btn-labeled btn-primary">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-ok"></i>
 			</span>
 			{{lang.saveBtnText}}
 		</button>
-		<button ng-disabled="!canBeSaved() || hasEightItems()" ng-click="saveAndClear()" class="btn btn-labeled btn-success">
+		<button ng-disabled="!canBeSaved() || hasMaxItems()" ng-click="saveAndClear()" class="btn btn-labeled btn-success">
 			<span class="btn-label">
 				<i class="glyphicon glyphicon-ok"></i>
 			</span>

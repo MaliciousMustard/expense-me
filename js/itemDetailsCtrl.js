@@ -36,8 +36,8 @@ expenseMeApp.controller("ItemDetailsCtrl", function($scope, $location, $routePar
 		}
 	});
 	
-	$scope.hasEightItems = function() {
-		return $scope.existingItems.length >= 8;
+	$scope.hasMaxItems = function() {
+		return $scope.existingItems.length >= maxItems();
 	};
 	
 	$scope.canBeSaved = function() {

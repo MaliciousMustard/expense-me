@@ -2,6 +2,19 @@
 	
 	<a class="list-group-item">
 		<div class="pull-right">
+			<select ng-options="o as o for o in maxItemsSelection" ng-model="maxItems" ng-change="changeMaxItems()">
+			</select>
+		</div>
+		<h4 class="list-group-item-heading">
+			{{lang.setItemLimit}}
+		</h4>
+		<p class="list-group-item-text">
+			{{lang.setItemLimitText}}
+		</p>
+	</a>
+	
+	<a class="list-group-item">
+		<div class="pull-right">
 			<select ng-options="language.value as language.name for language in languages" ng-model="selectedLanguage" ng-change="changeLanguage()">
 			</select>
 		</div>

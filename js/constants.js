@@ -143,3 +143,16 @@ var months = function() {
 var languages = function() {
 	return lang.languages;
 };
+
+var maxItemsKey = "random238423942812312";
+var maxItems = function() {
+	var maxItemsSetting = localStorage[maxItemsKey];
+	if (!maxItemsSetting) {
+		maxItemsSetting = "10";
+	}
+	return parseInt(maxItemsSetting);
+}
+
+var setMaxItems = function(m) {
+	localStorage[maxItemsKey] = m;
+}

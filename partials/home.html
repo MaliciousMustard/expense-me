@@ -34,16 +34,26 @@
 				<span ng-show="itemForm.price.$error.required">{{lang.priceRequiredMsg}}</span>
 				<span ng-show="itemForm.price.$error.float">{{lang.priceNoNumberMsg}}</span>
 			</div>
+			<div class="text-right" style="margin-top: 20px">
+				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">
+					{{lang.cancelBtnText}}
+				</button>
+				<button ng-disabled="itemForm.price.$invalid" ng-click="registerExpense(selectedItem)" class="btn btn-success" data-dismiss="modal">
+					{{lang.registerBtnText}}
+				</button>
+			  </div>
 		</form>
       </div>
-      <div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">
+      <!--
+	  <div class="modal-footer">
+		<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">
 			{{lang.cancelBtnText}}
 		</button>
-		<button ng-disabled="itemForm.price.$invalid" ng-click="registerExpense(selectedItem)" type="button" class="btn btn-success" data-dismiss="modal">
+		<button ng-disabled="itemForm.price.$invalid" ng-click="registerExpense(selectedItem)" class="btn btn-success" data-dismiss="modal">
 			{{lang.registerBtnText}}
 		</button>
       </div>
+	  -->
     </div>
   </div>
 </div>

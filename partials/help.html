@@ -31,7 +31,7 @@
 			<a ng-click="selectFaq('#collapse2')" data-parent="#accordion">
 				<i class="pull-right glyphicon glyphicon-chevron-right"></i>
 				<h4 class="panel-title">
-					Adding new items
+					{{lang.addingNewItems}}
 				</h4>
 			</a>
 		</div>
@@ -64,14 +64,15 @@
 			<a ng-click="selectFaq('#collapse3')" data-parent="#accordion">
 				<i class="pull-right glyphicon glyphicon-chevron-right"></i>
 				<h4 class="panel-title">
-					Can I control the color of the item's button?
+					{{lang.controlItemColor}}
 				</h4>
 			</a>
 		</div>
 		<div id="collapse3" class="panel-collapse collapse">
 			<div class="panel-body">
-				No, ExpenseMe does not allow you to specify a particular color for an item. The color will be randomly selected from a pool of 5 colors upon creation of the item.<br/>
-				However, an item will always have the same color. The only way to get a different color for an item is by deleting the item and adding it again.
+				{{lang.noColorSelection}}
+				<br/>
+				{{lang.sameColorForItem}}
 			</div>
 		</div>
 	</div>
@@ -81,14 +82,14 @@
 			<a ng-click="selectFaq('#collapse4')" data-parent="#accordion">
 				<i class="pull-right glyphicon glyphicon-chevron-right"></i>
 				<h4 class="panel-title">
-					How can I change the details of an item?
+					{{lang.howChangeItemDetails}}
 				</h4>
 			</a>
 		</div>
 		<div id="collapse4" class="panel-collapse collapse">
 			<div class="panel-body">
-				Items can be edited through the <a href="#itemList">{{lang.editItems}}</a> screen. You can change all the details of an item except from his name. <br/>
-				Changes to the details of an item will not affect previous uses (expenses) of this particular item. They will only affect future ones.
+				{{lang.editDetailsThrough}} <a href="#itemList">{{lang.editItems}}</a>. {{lang.editDetailsExceptName}}<br/>
+				{{lang.editItemAffectFutureExpenses}}
 			</div>
 		</div>
 	</div>

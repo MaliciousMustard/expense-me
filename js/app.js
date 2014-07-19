@@ -3,8 +3,9 @@ var expenseMeApp = angular.module('expenseMeApp', ['ngRoute']);
 // configuration and routing
 expenseMeApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
-		when("/about", {
-			templateUrl: 'partials/about.html'
+		when("/help", {
+			templateUrl: 'partials/help.html',
+			controller: 'HelpCtrl'
 		}).
 		when("/editExpense/:expense", {
 			templateUrl: 'partials/expenseDetails.html',

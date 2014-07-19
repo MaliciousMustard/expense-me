@@ -1,5 +1,4 @@
 var en_lang = {
-	about: "About",
 	added: "added",
 	addItemsMsg: "Please add some items by clicking here.",
 	addNewItem: "Add new item",
@@ -27,6 +26,7 @@ var en_lang = {
 	findAttachedExpenses: "Please find attached the expenses for",
 	food: "Food",
 	gas: "Gas",
+	help: "Help",
 	home: "Home",
 	howStartMsg: "In order to start keeping track of your expenses please add some items.",
 	item: "Item",

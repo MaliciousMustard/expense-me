@@ -1,0 +1,97 @@
+<!--
+<h4>Having problem to keep track of where you spend your money?</h4>
+<p>
+	Fear not, ExpenseMe is here to solve your problems.
+	<br/>
+	Log your expenses the moment you pay and keep track of where you spend your money every month!
+</p>
+-->
+
+<div class="panel-group" id="accordion">
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<a ng-click="selectFaq('#collapse1')" data-parent="#accordion">
+				<i class="pull-right glyphicon glyphicon-chevron-right"></i>
+				<h4 class="panel-title">
+					Where do I start from?
+				</h4>
+			</a>
+		</div>
+		<div id="collapse1" class="panel-collapse collapse">
+			<div class="panel-body">
+				The first thing you need to do is add some items you're using often. You can do that through the <a href="#newItem">{{lang.addNewItem}}</a> screen.<br/>
+				These items will be presented in the initial screen and they will be easily accessible. For that reason, only frequently used items should be added so that the initial screen is not cluttered.
+			</div>
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<a ng-click="selectFaq('#collapse2')" data-parent="#accordion">
+				<i class="pull-right glyphicon glyphicon-chevron-right"></i>
+				<h4 class="panel-title">
+					Adding new items
+				</h4>
+			</a>
+		</div>
+		<div id="collapse2" class="panel-collapse collapse">
+			<div class="panel-body">
+				When adding a new item you can specify the following details:
+				<dl class="dl-horizontal">
+					<dt>Name</dt>
+					<dd>This is a required field. It must describe the item, ideally not with a broad term. For example, if you buy a lot of Coca-Cola then the name of the item should be 'Coca-Cola' and not 'Soft Drink'.</dd>
+					
+					<dt>Description</dt>
+					<dd>An optional description for the item.</dd>
+					
+					<dt>Price</dt>
+					<dd>An optional price for the item. <br/>
+					Some items have fixed price, for example your favorite tobacco. In these cases it's good to specify the price so that you don't have to enter it every time you click on the item.<br/>
+					If there is no standard price for the item, then this field should be left blank. This way, when you click on the item, ExpenseMe will ask you for the price you paid that particular time.</dd>
+					
+					<dt>Category</dt>
+					<dd>Optional field which allows some grouping of items. This determine the icon that will be used for the item's button and also for later processing of the expenses, for example if you want to see how much you are spending on drinks in general and not only on Coca-Cola.<br/>
+					If no category is specified, then the first letter of the item's name will be used for the item's button.</dd>
+				</dl>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<a ng-click="selectFaq('#collapse3')" data-parent="#accordion">
+				<i class="pull-right glyphicon glyphicon-chevron-right"></i>
+				<h4 class="panel-title">
+					Can I control the color of the item's button?
+				</h4>
+			</a>
+		</div>
+		<div id="collapse3" class="panel-collapse collapse">
+			<div class="panel-body">
+				No, ExpenseMe does not allow you to specify a particular color for an item. The color will be randomly selected from a pool of 5 colors upon creation of the item.<br/>
+				However, an item will always have the same color. The only way to get a different color for an item is by deleting the item and adding it again.
+			</div>
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<a ng-click="selectFaq('#collapse4')" data-parent="#accordion">
+				<i class="pull-right glyphicon glyphicon-chevron-right"></i>
+				<h4 class="panel-title">
+					How can I change the details of an item?
+				</h4>
+			</a>
+		</div>
+		<div id="collapse4" class="panel-collapse collapse">
+			<div class="panel-body">
+				Items can be edited through the <a href="#itemList">{{lang.editItems}}</a> screen. You can change all the details of an item except from his name. <br/>
+				Changes to the details of an item will not affect previous uses (expenses) of this particular item. They will only affect future ones.
+			</div>
+		</div>
+	</div>
+
+	
+</div>

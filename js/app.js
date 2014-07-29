@@ -140,7 +140,7 @@ var alertBox = (function() {
 		clearTimeout(hideHandler);
 
 		elem.find("span").html(text);
-		elem.delay(200).fadeIn().delay(1000).fadeOut();
+		elem.delay(200).fadeIn().delay(300).fadeOut();
 	};
 
 	return that;

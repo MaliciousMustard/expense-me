@@ -30,5 +30,5 @@ function initializeAngular() {
 	angular.bootstrap(document, ['expenseMeApp']);
 }
 
-document.addEventListener("deviceready", initializeAngular, false);
-//initializeAngular();
+//document.addEventListener("deviceready", initializeAngular, false);
+initializeAngular();

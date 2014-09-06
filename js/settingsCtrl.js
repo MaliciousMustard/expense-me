@@ -32,7 +32,7 @@ expenseMeApp.controller('SettingsCtrl', function($scope) {
 		initializeCtrl();
 	};
 	
-	$scope.maxItemsSelection = [10, 15, 20, 25, 30, 35, 40];
+	$scope.maxItemsSelection = [10, 15, 20, 25, 30];
 	$scope.maxItems = maxItems();
 	$scope.changeMaxItems = function() {
 		setMaxItems($scope.maxItems);

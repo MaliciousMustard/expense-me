@@ -14,21 +14,21 @@
 			<a ng-click="selectFaq('#collapse0')" data-parent="#accordion">
 				<i class="pull-right glyphicon glyphicon-chevron-right"></i>
 				<h4 class="panel-title">
-					What is ExpenseMe?
+					{{lang.whatIsExpenseMe}}
 				</h4>
 			</a>
 		</div>
 		<div id="collapse0" class="panel-collapse collapse">
 			<div class="panel-body">			
-				ExpenseMe is an app that allows you to log your expenses the moment you make them.
-				<br/>
-				You initialize the app with all of your usual expenses, e.g. cigarettes, coffee, petrol for the car etc. These usual expenses will appear as round buttons from now on, when you open the app. Any time you buy something, all you have to do is press the circle that corresponds to the item you bought and ... that's it!
+				{{lang.whatIsExpenseMeBody1}}
 				<br/><br/>
-				Of course there are times you will buy something which is not part of your usual items. In this case you just need to press the round button with the + sign and enter the details of the product. This item will not become part of your usual products but it will still be registered in your expenses.
+				{{lang.whatIsExpenseMeBody2}}
 				<br/><br/>
-				In addition there are products which do not have a fixed price, for example, every time you put a different amount of petrol in your car. What you need to do is to leave the Price field blank when you are creating the product. This way, every time you want to register it the app will ask you for the price.
+				{{lang.whatIsExpenseMeBody3}}
+				<br/><br/>
+				{{lang.whatIsExpenseMeBody4}}
 				<br/></br>
-				Any time you want, you can see your expenses for any month you like and also send them as an Excel spreadsheet into your email to work on them in your computer.
+				{{lang.whatIsExpenseMeBody5}}
 			</div>
 		</div>
 	</div>
@@ -44,7 +44,7 @@
 		</div>
 		<div id="collapse1" class="panel-collapse collapse">
 			<div class="panel-body">
-				The first thing you need to do is add some items you're using often. You can do that through the <a href="#newItem">{{lang.addNewItem}}</a> screen.
+				{{lang.whereStartBody1a}} <a href="#newItem">{{lang.addNewItem}}</a> {{lang.whereStartBody1b}}.
 				<br/>
 				{{lang.whereStartBody2}}
 			</div>

@@ -108,8 +108,16 @@ var en_lang = {
 	updateBtnText: "Update",
 	updated: "updated",
 	welcomeMsg: "Welcome to XpenseMe!",
+	whatIsExpenseMe: "What is ExpenseMe?",
+	whatIsExpenseMeBody1: "ExpenseMe is an app that allows you to log your expenses the moment you make them.",
+	whatIsExpenseMeBody2: "You initialize the app with all of your usual expenses, e.g. cigarettes, coffee, petrol for the car etc. These usual expenses will appear as round buttons from now on, when you open the app. Any time you buy something, all you have to do is press the circle that corresponds to the item you bought and ... that's it!",
+	whatIsExpenseMeBody3: "Of course there are times you will buy something which is not part of your usual items. In this case you just need to press the round button with the + sign and enter the details of the product. This item will not become part of your usual products but it will still be registered in your expenses.",
+	whatIsExpenseMeBody4: "In addition there are products which do not have a fixed price, for example, every time you put a different amount of petrol in your car. What you need to do is to leave the Price field blank when you are creating the product. This way, every time you want to register it the app will ask you for the price.",
+	whatIsExpenseMeBody5: "Any time you want, you can see your expenses for any month you like and also send them as an Excel spreadsheet into your email to work on them in your computer.",
 	whereSeeExpenses: "Where can I see my expenses?",
 	whereSeeExpensesBody: "If you navigate to the Expenses page from the menu, you can see all the expenses for the current month. You can also select a different month and see what expenses you did then.",
 	whereStart: "Where do I start from?",
+	whereStartBody1a: "The first thing you need to do is add some items you're using often. You can do that through the",
+	whereStartBody1b: "screen",
 	whereStartBody2: "These items will be presented in the initial screen and they will be easily accessible. For that reason, only frequently used items should be added so that the initial screen is not cluttered."
 };

@@ -11,6 +11,25 @@
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
+			<a ng-click="selectFaq('#collapse0')" data-parent="#accordion">
+				<i class="pull-right glyphicon glyphicon-chevron-right"></i>
+				<h4 class="panel-title">
+					What is ExpenseMe?
+				</h4>
+			</a>
+		</div>
+		<div id="collapse0" class="panel-collapse collapse">
+			<div class="panel-body">			
+				ExpenseMe is an app that allows you to log your expenses the moment you make them.
+				
+				The first thing you need to do is add some items you're using often. You can do that through the <a href="#newItem">{{lang.addNewItem}}</a> screen.<br/>
+				These items will be presented in the initial screen and they will be easily accessible. For that reason, only frequently used items should be added so that the initial screen is not cluttered.
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
 			<a ng-click="selectFaq('#collapse1')" data-parent="#accordion">
 				<i class="pull-right glyphicon glyphicon-chevron-right"></i>
 				<h4 class="panel-title">

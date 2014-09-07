@@ -93,6 +93,40 @@ input, textarea, button, select { margin-top:10px }
 	margin-bottom:10px; 
 }
 
+.contact-social {
+  font-size: 30px;
+  margin-top: 10px;
+}
+.contact-social .mail {
+  color: #DD4B39;
+  cursor: pointer;
+}
+.contact-social .git {
+  color: black;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.contact-social .twitter {
+  color: #19C4FF;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.contact-social .google-plus {
+  color: #DD4B39;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.contact-social .facebook {
+  color: #49649F;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.contact-social .linkedin {
+  color: #007BB6;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
 /* For sticky footer */
 /* Sticky footer styles
 -------------------------------------------------- */

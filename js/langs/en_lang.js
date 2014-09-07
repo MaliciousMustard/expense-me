@@ -14,6 +14,8 @@ var en_lang = {
 	cleaning: "Cleaning",
 	clothing: "Clothing",
 	coffee: "Coffee",
+	contact: "Contact",
+	contactBody: "For any suggestions/comments/complaints, you can contact us through one of the following",
 	controlItemColor: "Can I control the color of the item's button?",
 	deleteBtnText: "Delete",
 	deleted: "deleted",

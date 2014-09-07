@@ -21,6 +21,7 @@
 	
 	<gap:plugin name="org.apache.cordova.globalization" />
 	<gap:plugin name="de.appplant.cordova.plugin.email-composer" />
+	<gap:plugin name="org.apache.cordova.inappbrowser" />
 	
 	<icon src="icons/android/drawable-mdpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="mdpi" />
 	<icon src="icons/android/drawable-ldpi/ic_launcher.png"   gap:platform="android"    gap:qualifier="ldpi" />

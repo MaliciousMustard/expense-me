@@ -9,6 +9,8 @@ var en_lang = {
 	backBtnText: "Back",
 	bills: "Bills",
 	book: "Book",
+	buyNotUsualProduct: "What if I buy something that it's not a usual product for me?",
+	buyNotUsualProductBody: "In the initial screen there is a button with the + symbol. Every time you buy something out of the usual products, you can press this button and enter the details of the product. This product will not be part of your usual products but the expense will still be registered.",
 	cancelBtnText: "Cancel",
 	changeLanguageText: "Change the language of ExpenseMe to the one you prefer.",
 	cleaning: "Cleaning",
@@ -47,6 +49,8 @@ var en_lang = {
 		{name: "English", value: "English"},
 		{name: "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac", value: "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac"}
 	],
+	madeExpenseMistake: "I made a mistake in one of the expenses I registered. Can I correct it?",
+	madeExpenseMistakeBody: "Yes! All you need to do is select the expense that you want to edit from the expenses screen and in the new screen you can update the details or even delete it completely.",
 	months: [
 		"January",
 		"February",
@@ -86,6 +90,9 @@ var en_lang = {
 	selectCategory: "Select category",
 	selectMonth: "Select month",
 	selectLanguage: "Select language",
+	sendExpenses: "Can I send my expenses to my email?",
+	sendExpensesBody1: "Of course! ExpenseMe allows you to export your expenses as an Excel spreadsheet and send them via email.",
+	sendExpensesBody2: "In the Expenses screen, there are two buttons which allow you to export the expenses of the selected month or to export the expenses of the whole selected year.",
 	setItemLimit: "Set maximum number of items",
 	setItemLimitText: "Restricts the number of items and makes ExpenseMe more usable.",
 	settings: "Settings",
@@ -100,5 +107,9 @@ var en_lang = {
 	travelling: "Travelling",
 	updateBtnText: "Update",
 	updated: "updated",
-	welcomeMsg: "Welcome to XpenseMe!"
+	welcomeMsg: "Welcome to XpenseMe!",
+	whereSeeExpenses: "Where can I see my expenses?",
+	whereSeeExpensesBody: "If you navigate to the Expenses page from the menu, you can see all the expenses for the current month. You can also select a different month and see what expenses you did then.",
+	whereStart: "Where do I start from?",
+	whereStartBody2: "These items will be presented in the initial screen and they will be easily accessible. For that reason, only frequently used items should be added so that the initial screen is not cluttered."
 };

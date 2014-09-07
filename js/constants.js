@@ -148,7 +148,7 @@ var maxItemsKey = "random238423942812312";
 var maxItems = function() {
 	var maxItemsSetting = localStorage[maxItemsKey];
 	if (!maxItemsSetting) {
-		maxItemsSetting = "10";
+		maxItemsSetting = "20";
 	}
 	return parseInt(maxItemsSetting);
 }

@@ -150,15 +150,7 @@ var shouldRate = function() {
 	if (rateSetting === "no") {
 		return false;
 	} else if (rateSetting === undefined) {
-		var currentDate = new Date();
-		if (currentDate.getMonth() == 11) { // December
-			currentDate.setMonth(0);
-			currentDate.setFullYear(currentDate.getFullYear() + 1);
-		} else {
-			currentDate.setMonth(currentDate.getMonth() + 1); // if the next month doesn't have enough days, javascript will handle it on its own
-		}
-		var dateStr = currentDate.toISOString();
-		localStorage[rateAppKey] = dateStr.substring(0, dateStr.indexOf('T'));
+		delayRateForAMonth();
 		return false;
 	} else {
 		var currentDate = new Date();
@@ -169,6 +161,20 @@ var shouldRate = function() {
 			return false;
 		}
 	}
+}
+var delayRateForAMonth = function() {
+	var currentDate = new Date();
+	if (currentDate.getMonth() == 11) { // December
+		currentDate.setMonth(0);
+		currentDate.setFullYear(currentDate.getFullYear() + 1);
+	} else {
+		currentDate.setMonth(currentDate.getMonth() + 1); // if the next month doesn't have enough days, javascript will handle it on its own
+	}
+	var dateStr = currentDate.toISOString();
+	localStorage[rateAppKey] = dateStr.substring(0, dateStr.indexOf('T'));
+}
+var cancelRate = function() {
+	localStorage[rateAppKey] = "no";
 }
 
 var maxItemsKey = "random238423942812312";

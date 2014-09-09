@@ -44,19 +44,45 @@
 			  </div>
 		</form>
       </div>
-      <!--
-	  <div class="modal-footer">
-		<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">
-			{{lang.cancelBtnText}}
-		</button>
-		<button ng-disabled="itemForm.price.$invalid" ng-click="registerExpense(selectedItem)" class="btn btn-success" data-dismiss="modal">
-			{{lang.registerBtnText}}
-		</button>
-      </div>
-	  -->
     </div>
   </div>
 </div>
+
+<!-- Rating modal -->
+<div class="modal fade" id="rate" tabindex="-1" role="dialog" aria-labelledby="rateLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="rateLabel">Thanks for your support!</h4>
+      </div>
+      <div class="modal-body">
+		<form name="itemForm" novalidate role="form" style="margin: 0 auto;">
+			If you enjoy using ExpenseMe, would you mind taking a moment to rate it? 
+			<br/>
+			It won't take more than a minute. 
+			<div class="text-right" style="margin-top: 20px">
+				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">
+					Later
+				</button>
+				<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">
+					Never
+				</button>
+				<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">
+					Rate
+				</button>
+			  </div>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	if (shouldRate()) {
+		$('#rate').modal('show');
+	}
+</script>
 
 <div ng-show="items.length == 0 && beenHereBefore" class="alert alert-warning fade in">
 	<strong>{{lang.noItemsFoundMsg}}<a href="#newItem">{{lang.addItemsMsg}}</a></strong>

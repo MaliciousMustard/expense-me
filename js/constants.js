@@ -1,3 +1,4 @@
+var rateAppKey = "random2934109302932";
 var langKey = "random394885996049";
 var lang = null;
 var itemsKey = "random2938495873";
@@ -143,6 +144,32 @@ var months = function() {
 var languages = function() {
 	return lang.languages;
 };
+
+var shouldRate = function() {
+	var rateSetting = localStorage[rateAppKey];
+	if (rateSetting === "no") {
+		return false;
+	} else if (rateSetting === undefined) {
+		var currentDate = new Date();
+		if (currentDate.getMonth() == 11) { // December
+			currentDate.setMonth(0);
+			currentDate.setFullYear(currentDate.getFullYear() + 1);
+		} else {
+			currentDate.setMonth(currentDate.getMonth() + 1); // if the next month doesn't have enough days, javascript will handle it on its own
+		}
+		var dateStr = currentDate.toISOString();
+		localStorage[rateAppKey] = dateStr.substring(0, dateStr.indexOf('T'));
+		return false;
+	} else {
+		var currentDate = new Date();
+		var dateStr = currentDate.toISOString();
+		if (dateStr.substring(0, dateStr.indexOf('T')) >= rateSetting) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
 
 var maxItemsKey = "random238423942812312";
 var maxItems = function() {

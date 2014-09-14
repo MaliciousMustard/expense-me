@@ -58,18 +58,18 @@
       </div>
       <div class="modal-body">
 		<form name="itemForm" novalidate role="form" style="margin: 0 auto;">
-			If you enjoy using ExpenseMe, would you mind taking a moment to rate it? 
+			{{lang.rateHeader}}
 			<br/>
-			It won't take more than a minute. 
+			{{lang.rateBody}}
 			<div class="text-right" style="margin-top: 20px">
 				<button class="btn btn-default" onClick="delayRateForAMonth()" data-dismiss="modal" aria-hidden="true">
-					Later
+					{{lang.btnLaterText}}
 				</button>
 				<button class="btn btn-danger" onClick="cancelRate()" data-dismiss="modal" aria-hidden="true">
-					Never
+					{{lang.btnNeverText}}
 				</button>
 				<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">
-					Rate
+					{{lang.btnRateText}}
 				</button>
 			  </div>
 		</form>

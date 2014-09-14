@@ -168,7 +168,7 @@ var delayRateForAMonth = function() {
 		currentDate.setMonth(0);
 		currentDate.setFullYear(currentDate.getFullYear() + 1);
 	} else {
-		currentDate.setMonth(currentDate.getMonth() + 1); // if the next month doesn't have enough days, javascript will handle it on its own
+		currentDate.setMonth(currentDate.getMonth() + 1); // if the next month doesn't have enough days, javascript will handle it automatically
 	}
 	var dateStr = currentDate.toISOString();
 	localStorage[rateAppKey] = dateStr.substring(0, dateStr.indexOf('T'));

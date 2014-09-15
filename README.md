@@ -1,13 +1,30 @@
+Short description
+=====================
+ExpenseMe provides a very simple and intuitive interface that allows you to record your expenses the moment you pay and keep track of where you spend your money every month. It only requires one press of a button and your expense is registered!
+No more spending time trying to log your expense!
+
+
+Long description
+=====================
 How many times have you tried to keep track of your expenses and you gave up quickly?
 In the beginning everything is fine...you create a spreadsheet in your computer and every time you are out and buy something you note it down to log it once you return home. But soon enough you are too busy or forget to note things down and your expenses sheet is incomplete and you are left wondering where all the money has gone!
 
 Well, fear not! ExpenseMe is here to solve your problems.
-ExpenseMe allows you to record your expenses the moment you pay with a very intuitive and simple to use interface and keep track of where you spend your money every month. It only requires one press of a button and your expense is registered!
+ExpenseMe allows you to record your expenses the moment you pay with a very intuitive and simple to use interface and keep track of where you spend your money every month. 
+It only requires one press of a button and your expense is registered!
 
 Stop worrying about keeping a record of your expenses and focus only on how to minimize them!
 
 -----------------------------------------------------------
 
+Short description
+====================
+Το ExpenseMe σας επιτρέπει μέσω ένος πολύ απλού και εύχρηστου περιβάλλοντος να καταγράψετε τα έξοδά σας και έτσι να ξέρετε ανά πάσα στιγμή πού έχετε ξοδέψει τα χρήματά σας.
+Το μόνο που χρειάζεται είναι το πάτημα ενός κουμπιού και η αγορά σας έχει καταχωρηθεί!
+
+
+Long description
+====================
 Πόσες φορές δεν προσπαθήσατε να κρατήσετε ένα αρχείο των εξόδων σας και τα παρατήσατε σχεδόν αμέσως?
 Στην αρχή όλα είναι καλά...δημιουργείς ένα αρχείο στον υπολογιστή σου και κάθε φορά που είσαι έξω και αγοράζεις κάτι το σημειώνεις για να το περάσεις στο αρχείο σου μόλις γυρίσεις σπίτι. Αλλά αργά ή γρήγορα συνειδητοποιείς ότι παραλείπεις πράγματα είτε γιατί ήσουν πολύ απασχολημένος να το σημειώσεις ή επειδή ξέχασες. Στο τέλος καταλήγεις με ένα ημιτελές αρχείο εξόδων και απορείς που έχουν φύγει τόσα λεφτά!
 

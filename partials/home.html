@@ -38,7 +38,7 @@
 				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">
 					{{lang.cancelBtnText}}
 				</button>
-				<button ng-disabled="itemForm.price.$invalid" ng-click="registerExpense(selectedItem)" class="btn btn-success" data-dismiss="modal" onclick="window.open('market://details?id=gr.ntousias.expenseMe', '_system');">
+				<button ng-disabled="itemForm.price.$invalid" ng-click="registerExpense(selectedItem)" class="btn btn-success" data-dismiss="modal">
 					{{lang.registerBtnText}}
 				</button>
 			  </div>
@@ -68,7 +68,7 @@
 				<button class="btn btn-danger" onClick="cancelRate()" data-dismiss="modal" aria-hidden="true">
 					{{lang.btnNeverText}}
 				</button>
-				<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">
+				<button class="btn btn-success" onclick="cancelRate(); window.open('market://details?id=gr.ntousias.expenseMe', '_system');" data-dismiss="modal" aria-hidden="true">
 					{{lang.btnRateText}}
 				</button>
 			  </div>
